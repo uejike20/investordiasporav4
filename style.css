@@ -55,68 +55,31 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 1rem; }
 .cta-button:hover { background-color: #004494; }
 
 /* =======================
-   WHY INVEST SECTION (FINAL CORRECTED LAYOUT)
+   WHY INVEST SECTION
    ======================== */
-#why-invest {
-    background-color: var(--white-color);
-}
 .reasons-grid {
     display: grid;
-    /* This creates the 4-column layout */
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem; /* A little less gap for 4 columns */
-    margin-top: 3rem;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+    gap: 2rem;
 }
 .reason-item {
     text-align: center;
     padding: 1rem;
 }
-.icon-container {
-    margin: 0 auto 1.5rem auto; /* Centers the box and adds space below */
-    width: 60px;
-    height: 60px;
-    border: 1px solid #ddd; /* The light gray border */
-    border-radius: 4px;
-    display: flex; /* These two lines center the icon inside the box */
-    align-items: center;
-    justify-content: center;
-}
 .reason-icon {
-    width: 32px; /* A good size for the icon itself */
-    height: 32px;
-    fill: var(--primary-color); /* The blue color for the icon */
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
 }
 .reason-item h3 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: var(--dark-blue);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 .reason-item p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #555;
-    line-height: 1.6;
-}
-
-/* =======================
-   RESPONSIVE DESIGN FOR THE GRID
-   ======================== */
-
-/* On tablets, switch to 2 columns */
-@media (max-width: 992px) {
-    .reasons-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* On mobile phones, switch to 1 column */
-@media (max-width: 768px) {
-    .reasons-grid {
-        grid-template-columns: 1fr;
-    }
-    /* Other mobile styles */
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 2rem; }
-    .nav-links { display: none; /* ... etc */ }
+    line-height: 1.5;
 }
 
 /* =======================
