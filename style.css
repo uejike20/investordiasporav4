@@ -53,11 +53,11 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 1rem; }
 .cta-button { background-color: var(--primary-color); color: var(--white-color); padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: background-color 0.3s ease; border: none; cursor: pointer; }
 
 /* =======================
-   WHY INVEST SECTION
+   WHY INVEST SECTION (CORRECTED)
    ======================== */
 .reasons-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     margin-top: 3rem;
 }
@@ -65,19 +65,10 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 1rem; }
     text-align: center;
     padding: 1rem;
 }
-.icon-container {
-    margin: 0 auto 1.5rem auto;
+.reason-icon {
     width: 60px;
     height: 60px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.reason-icon {
-    width: 32px;
-    height: 32px;
+    margin-bottom: 1.5rem;
 }
 .reason-item h3 {
     font-size: 1.2rem;
@@ -136,7 +127,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 1rem; }
    ======================== */
 @media (max-width: 992px) {
     .reasons-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 @media (max-width: 768px) {
@@ -150,7 +141,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 1rem; }
 }
 @media (max-width: 576px) {
     .reasons-grid {
-        grid-template-columns: 1fr; /* 1 column on mobile */
+        grid-template-columns: 1fr;
     }
 }
 .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
