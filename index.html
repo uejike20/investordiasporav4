@@ -318,12 +318,24 @@
                     <img src="./images/ods-pie.png" alt="ODS Pie" style="width: 100%; height: auto; display: block;">
                     <!-- TODO: Add interactive hover areas and tooltips for each segment -->
                     <svg id="ods-overlay" viewBox="0 0 851 851" style="position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none;">
-                        <!-- Example: Segment overlays (use pointer-events:all for interactivity) -->
-                        <!-- Segment 1 (Eradicação da Pobreza) -->
+                        <!-- 17 segments, clockwise from top (segment 1 at 12 o'clock) -->
                         <path data-ods="1" d="M425,85 A340,340 0 0,1 545,105 L520,200 A250,250 0 0,0 425,175 Z" fill="transparent" style="pointer-events:all;" />
-                        <!-- Segment 2 (Fome zero e agricultura sustentável) -->
                         <path data-ods="2" d="M545,105 A340,340 0 0,1 650,175 L590,255 A250,250 0 0,0 520,200 Z" fill="transparent" style="pointer-events:all;" />
-                        <!-- ... Repeat for all 17 segments, using approximate coordinates ... -->
+                        <path data-ods="3" d="M650,175 A340,340 0 0,1 720,280 L630,320 A250,250 0 0,0 590,255 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="4" d="M720,280 A340,340 0 0,1 745,425 L640,425 A250,250 0 0,0 630,320 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="5" d="M745,425 A340,340 0 0,1 720,570 L630,530 A250,250 0 0,0 640,425 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="6" d="M720,570 A340,340 0 0,1 650,675 L590,595 A250,250 0 0,0 630,530 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="7" d="M650,675 A340,340 0 0,1 545,745 L520,650 A250,250 0 0,0 590,595 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="8" d="M545,745 A340,340 0 0,1 425,765 L425,660 A250,250 0 0,0 520,650 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="9" d="M425,765 A340,340 0 0,1 305,745 L330,650 A250,250 0 0,0 425,660 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="10" d="M305,745 A340,340 0 0,1 200,675 L260,595 A250,250 0 0,0 330,650 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="11" d="M200,675 A340,340 0 0,1 130,570 L220,530 A250,250 0 0,0 260,595 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="12" d="M130,570 A340,340 0 0,1 105,425 L210,425 A250,250 0 0,0 220,530 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="13" d="M105,425 A340,340 0 0,1 130,280 L220,320 A250,250 0 0,0 210,425 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="14" d="M130,280 A340,340 0 0,1 200,175 L260,255 A250,250 0 0,0 220,320 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="15" d="M200,175 A340,340 0 0,1 305,105 L330,200 A250,250 0 0,0 260,255 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="16" d="M305,105 A340,340 0 0,1 425,85 L425,175 A250,250 0 0,0 330,200 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="17" d="M425,85 A340,340 0 0,1 545,105 L520,200 A250,250 0 0,0 425,175 Z" fill="transparent" style="pointer-events:all; opacity:0;" /> <!-- Overlap for 17, can adjust as needed -->
                     </svg>
                     <div id="ods-tooltip" style="display:none; position:absolute; left:0; top:0; background:rgba(0,0,0,0.85); color:#fff; padding:1rem; border-radius:8px; pointer-events:none; z-index:10; min-width:200px; max-width:300px; font-size:0.95rem;"></div>
                 </div>
