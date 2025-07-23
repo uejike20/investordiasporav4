@@ -314,66 +314,20 @@
         <section class="info-section alternate-bg" id="principios-orientadores">
             <div class="container">
                 <h2 class="fade-in">Princípios Orientadores do Negócio</h2>
-                <div class="fade-in">
-                    <p><strong>Guiados pelos valores da integridade, o objetivo dos seguintes princípios orientadores para a valorização das pessoas, do trabalho e das empresas, é adotar uma linha comum sobre medidas e iniciativas destinadas a melhorar a valorização dos investimentos em Cabo Verde, em particular, pressupondo uma ênfase em todo o ecossistema de criação de empregos e negócios e nas suas ligações, na cocriação entre intervenientes e na criação de valor societal.</strong></p>
-                    <h4>Adoção de Medidas Amigas do Ambiente/Sustentáveis</h4>
-                    <ul>
-                        <li>Energia: Instalação de painéis solares, melhoria da eficiência energética, transição para iluminação LED.</li>
-                        <li>Água: Reutilização de água, instalação de torneiras eficientes, métodos de irrigação eficientes.</li>
-                        <li>Uso de materiais reciclados e tratamento de resíduos: Separação e reciclagem, uso de recipientes reutilizáveis, hábitos de impressão sustentáveis.</li>
-                        <li>Áreas gerais: Garantir transporte e produção sustentável, pensar em resultados sustentáveis, reduzir o impacto ambiental de eventos.</li>
-                    </ul>
-                    <h4>Contribuir para o Desenvolvimento Comunitário</h4>
-                    <ul>
-                        <li>Parcerias com instituições de caridade e entidades comunitárias.</li>
-                        <li>Iniciativas de voluntariado e educacionais.</li>
-                        <li>Apoio a programas culturais e melhorias em escolas/hospitais.</li>
-                        <li>Desenvolvimento de produtos/serviços para necessidades específicas da comunidade.</li>
-                    </ul>
-                    <h4>Prevenção e Combate ao Assédio e Abuso Sexual</h4>
-                    <ul>
-                        <li>Aumentar a sensibilização e criar canais de comunicação e denúncia.</li>
-                        <li>Formação de gestores e colaboradores.</li>
-                        <li>Garantir confidencialidade e proteção às vítimas.</li>
-                    </ul>
-                    <h4>Política Organizacional por Igualdade de Gênero</h4>
-                    <ul>
-                        <li>Capacitar colaboradores em igualdade de gênero.</li>
-                        <li>Promover equilíbrio de gênero em cargos de decisão e recrutamento.</li>
-                        <li>Desenvolver políticas internas para equidade de gênero.</li>
-                        <li>Assegurar oportunidades iguais para todos os colaboradores.</li>
-                    </ul>
-                    <h4>Adoção e Implementação de um Código de Ética e Conduta</h4>
-                    <ul>
-                        <li>Realizar sessões de formação sobre o Código de Ética.</li>
-                        <li>Divulgar amplamente o código e garantir fácil acesso.</li>
-                        <li>Estabelecer consequências claras para violações.</li>
-                    </ul>
-                    <h4>Política de Inclusão de Grupos em Situação de Vulnerabilidade</h4>
-                    <ul>
-                        <li>Promover formação sobre inclusão e lidar com grupos vulneráveis.</li>
-                        <li>Definir políticas de inclusão e garantir acessibilidade.</li>
-                        <li>Adaptar instalações e plataformas digitais para acessibilidade.</li>
-                        <li>Estabelecer políticas contra discriminação e assédio.</li>
-                        <li>Envolver grupos vulneráveis em decisões e oferecer horários flexíveis.</li>
-                    </ul>
-                    <h4>Transparência e Responsabilização</h4>
-                    <ul>
-                        <li>Divulgar informações relevantes de forma transparente.</li>
-                        <li>Estabelecer diretrizes claras para comunicação interna e externa.</li>
-                        <li>Assegurar processos de decisão transparentes e bem documentados.</li>
-                        <li>Formar colaboradores sobre transparência e responsabilidade.</li>
-                        <li>Revisar políticas periodicamente.</li>
-                    </ul>
-                    <h4>Proteção Social</h4>
-                    <ul>
-                        <li>Fornecer informações claras sobre benefícios sociais.</li>
-                        <li>Oferecer planos de saúde e seguros de vida.</li>
-                        <li>Implementar programas de bem-estar físico e mental.</li>
-                        <li>Oferecer suporte financeiro e licenças para educação e aposentadoria.</li>
-                        <li>Criar fundos de assistência para emergências.</li>
-                    </ul>
+                <div class="ods-pie-container fade-in" style="position: relative; max-width: 500px; margin: 0 auto;">
+                    <img src="./images/ods-pie.png" alt="ODS Pie" style="width: 100%; height: auto; display: block;">
+                    <!-- TODO: Add interactive hover areas and tooltips for each segment -->
+                    <svg id="ods-overlay" viewBox="0 0 851 851" style="position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none;">
+                        <!-- Example: Segment overlays (use pointer-events:all for interactivity) -->
+                        <!-- Segment 1 (Eradicação da Pobreza) -->
+                        <path data-ods="1" d="M425,85 A340,340 0 0,1 545,105 L520,200 A250,250 0 0,0 425,175 Z" fill="transparent" style="pointer-events:all;" />
+                        <!-- Segment 2 (Fome zero e agricultura sustentável) -->
+                        <path data-ods="2" d="M545,105 A340,340 0 0,1 650,175 L590,255 A250,250 0 0,0 520,200 Z" fill="transparent" style="pointer-events:all;" />
+                        <!-- ... Repeat for all 17 segments, using approximate coordinates ... -->
+                    </svg>
+                    <div id="ods-tooltip" style="display:none; position:absolute; left:0; top:0; background:rgba(0,0,0,0.85); color:#fff; padding:1rem; border-radius:8px; pointer-events:none; z-index:10; min-width:200px; max-width:300px; font-size:0.95rem;"></div>
                 </div>
+                <p style="text-align:center; margin-top:2rem;">Passe o mouse sobre cada segmento para ver os princípios orientadores correspondentes.</p>
             </div>
         </section>
 
@@ -545,5 +499,48 @@
     </div>
     
     <script src="script.js"></script>
+    <script>
+// ODS segment descriptions (from the second image)
+const odsDescriptions = {
+  1: '<strong>Erradicação da Pobreza</strong><br>Oportuniza acesso de homens e mulheres a recursos econômicos e proteção social.',
+  2: '<strong>Fome zero e agricultura sustentável</strong><br>Contribui para o acesso ao alimento e redução da fome. Oferta de produtos nutritivos e seguros.',
+  3: '<strong>Saúde e bem-estar</strong><br>Acesso a serviços essenciais para a qualidade de vida dos colaboradores. Exigência na cadeia de abastecimento de condições de trabalho em ambiente saudável e seguro.',
+  4: '<strong>Qualidade de educação</strong><br>Oportunidades de acesso à educação e desenvolvimento para funcionários, familiares e comunidades de entorno.',
+  5: '<strong>Igualdade de gênero</strong><br>Estimula a participação plena e efetiva das mulheres e a igualdade de oportunidades. Fomenta a ocupação de mulheres em cargos de liderança.',
+  6: '<strong>Água potável e saneamento</strong><br>Contribui com a qualidade da água e fomenta o uso eficiente do recurso hídrico.',
+  7: '<strong>Energia limpa e acessível</strong><br>Adoção de fontes renováveis e incorporação de tecnologias para ampliar a eficiência energética do seu processo produtivo.',
+  8: '<strong>Trabalho decente e crescimento econômico</strong><br>Geração de emprego e rendimento. Incentivo do trabalho decente na cadeia de valor. Estímulo ao empreendedorismo na comunidade.',
+  9: '<strong>Indústria, inovação e infraestrutura</strong><br>Promoção da industrialização inclusiva e sustentável. Modernização da infraestrutura. Fomento à tecnologia, à pesquisa e à inovação.',
+ 10: '<strong>Redução das desigualdades</strong><br>Estímulo ao empoderamento e à promoção da inclusão social e econômica.',
+ 11: '<strong>Cidades e comunidades sustentáveis</strong><br>Fomento à proteção e salvaguarda do patrimônio cultural e natural do mundo.',
+ 12: '<strong>Consumo e produção responsáveis</strong><br>Gestão sustentável e uso eficiente dos recursos naturais na produção. Redução do desperdício de alimentos. Realização de compras sustentáveis.',
+ 13: '<strong>Ação contra a mudança global do clima</strong><br>Otimização do processo para redução das emissões de GEE.',
+ 14: '<strong>Vida na água</strong><br>Realização de campanhas para conservação da zona costeira.',
+ 15: '<strong>Vida terrestre</strong><br>Preservação de fragmentos florestais, inclusive em áreas montanhosas e de terras áridas.',
+ 16: '<strong>Paz, justiça e instituições eficazes</strong><br>Atua contra a corrupção e o suborno em todas as suas formas.',
+ 17: '<strong>Parcerias e meios de implementação</strong><br>Incentivo e promoção de parcerias para o desenvolvimento sustentável.'
+};
+
+// Approximate mapping of ODS segments to SVG paths (for demo, only 2 shown)
+const svg = document.getElementById('ods-overlay');
+const tooltip = document.getElementById('ods-tooltip');
+
+if (svg && tooltip) {
+  svg.querySelectorAll('path[data-ods]').forEach(path => {
+    path.addEventListener('mousemove', function(e) {
+      const ods = this.getAttribute('data-ods');
+      tooltip.innerHTML = odsDescriptions[ods] || '';
+      tooltip.style.display = 'block';
+      // Position tooltip near mouse
+      const rect = svg.getBoundingClientRect();
+      tooltip.style.left = (e.clientX - rect.left + 20) + 'px';
+      tooltip.style.top = (e.clientY - rect.top - 10) + 'px';
+    });
+    path.addEventListener('mouseleave', function() {
+      tooltip.style.display = 'none';
+    });
+  });
+}
+</script>
 </body>
 </html>
