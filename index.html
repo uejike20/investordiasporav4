@@ -327,8 +327,8 @@
                         <path data-ods="6" d="M720,570 A340,340 0 0,1 650,675 L590,595 A250,250 0 0,0 630,530 Z" fill="transparent" style="pointer-events:all;" />
                         <path data-ods="7" d="M650,675 A340,340 0 0,1 545,745 L520,650 A250,250 0 0,0 590,595 Z" fill="transparent" style="pointer-events:all;" />
                         <path data-ods="8" d="M545,745 A340,340 0 0,1 425,765 L425,660 A250,250 0 0,0 520,650 Z" fill="transparent" style="pointer-events:all;" />
-                        <path data-ods="9" d="M425,765 A340,340 0 0,1 305,745 L330,650 A250,250 0 0,0 425,660 Z" fill="rgba(255,0,0,0.2)" style="pointer-events:all;" />
-                        <path data-ods="10" d="M305,745 A340,340 0 0,1 200,675 L260,595 A250,250 0 0,0 330,650 Z" fill="rgba(0,0,255,0.2)" style="pointer-events:all;" />
+    <path data-ods="9" d="M425,765 A340,340 0 0,1 305,745 L330,650 A250,250 0 0,0 425,660 Z" fill="rgba(255,0,0,0.3)" style="pointer-events:all;" />
+    <path data-ods="10" d="M305,745 A340,340 0 0,1 200,675 L260,595 A250,250 0 0,0 330,650 Z" fill="rgba(0,255,0,0.3)" style="pointer-events:all;" />
                         <path data-ods="11" d="M200,675 A340,340 0 0,1 130,570 L220,530 A250,250 0 0,0 260,595 Z" fill="transparent" style="pointer-events:all;" />
                         <path data-ods="12" d="M130,570 A340,340 0 0,1 105,425 L210,425 A250,250 0 0,0 220,530 Z" fill="transparent" style="pointer-events:all;" />
                         <path data-ods="13" d="M105,425 A340,340 0 0,1 130,280 L220,320 A250,250 0 0,0 210,425 Z" fill="transparent" style="pointer-events:all;" />
@@ -536,30 +536,36 @@ const odsDescriptions = {
 // Approximate mapping of ODS segments to SVG paths (for demo, only 2 shown)
 const svg = document.getElementById('ods-overlay');
 const tooltip = document.getElementById('ods-tooltip');
-const imgOverlay = document.getElementById('ods-img-overlay');
 
-if (svg && tooltip && imgOverlay) {
-  svg.querySelectorAll('path[data-ods]').forEach(path => {
-    path.addEventListener('mousemove', function(e) {
-      const ods = this.getAttribute('data-ods');
-      // For ODS 9 and 10, show image overlay instead of tooltip
-      if (ods === '9' || ods === '10') {
-        tooltip.style.display = 'none';
-        imgOverlay.innerHTML = `<img src='./images/ods-${ods}.png' style='width:600px;max-width:90vw;max-height:80vh;box-shadow:0 8px 32px rgba(0,0,0,0.18);border-radius:18px;background:transparent;'>`;
-        imgOverlay.style.display = 'block';
-      } else {
-        imgOverlay.style.display = 'none';
+if (svg && tooltip) {
+  console.log('SVG overlay element found:', svg);
+  const paths = svg.querySelectorAll('path[data-ods]');
+  console.log(`Found ${paths.length} ODS path elements`);
+  
+  paths.forEach((path, index) => {
+    console.log(`Processing path ${index + 1} with data-ods: ${path.getAttribute('data-ods')}`);
+    
+    try {
+      path.addEventListener('mousemove', function(e) {
+        const ods = this.getAttribute('data-ods');
         tooltip.innerHTML = odsDescriptions[ods] || '';
         tooltip.style.display = 'block';
         const rect = svg.getBoundingClientRect();
         tooltip.style.left = (e.clientX - rect.left + 20) + 'px';
         tooltip.style.top = (e.clientY - rect.top - 10) + 'px';
-      }
-    });
-    path.addEventListener('mouseleave', function() {
-      tooltip.style.display = 'none';
-      imgOverlay.style.display = 'none';
-    });
+      });
+    } catch (error) {
+      console.error('Error adding mousemove listener:', error);
+    }
+
+    try {
+      path.addEventListener('mouseleave', function() {
+        console.log('Mouse left segment:', this.getAttribute('data-ods'));
+        tooltip.style.display = 'none';
+      });
+    } catch (error) {
+      console.error('Error adding mouseleave listener:', error);
+    }
   });
 }
 </script>
