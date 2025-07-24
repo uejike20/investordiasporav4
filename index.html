@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <!-- Existing head content -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investir em Cabo Verde | Guia do Investidor da Diáspora</title>
@@ -9,129 +8,563 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* ODS Overlay Styles */
-        .ods-container {
-            position: relative;
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        .ods-main-image {
-            width: 100%;
-            height: auto;
-        }
-
-        .ods-overlay {
-            display: none;
-            position: absolute;
-            background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            border-radius: 8px;
-            padding: 1.5rem;
-            width: 300px;
-            z-index: 1000;
-        }
-
-        .ods-overlay img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 1rem;
-        }
-
-        .ods-overlay.active {
-            display: block;
-        }
-
-        map area {
-            cursor: pointer;
-            outline: none;
-        }
-    </style>
 </head>
 <body>
-    <!-- Existing body content -->
 
-    <!-- ODS Section -->
-    <section class="info-section alternate-bg" id="principios-orientadores">
+    <!-- =======================
+    HEADER & NAVIGATION
+    ======================== -->
+    <header class="site-header">
         <div class="container">
-            <h2 class="fade-in">Princípios Orientadores do Negócio</h2>
-            <div class="ods-container fade-in">
-                <img src="./images/ods-base.png" class="ods-main-image" alt="ODS Principles" usemap="#odsMap">
-                
-                <map name="odsMap">
-                    <!-- Generated coordinates for ODS segments -->
-                    <area shape="poly" coords="425,85,545,105,520,200,425,175" data-ods="1" alt="ODS 1">
-                    <area shape="poly" coords="545,105,650,175,590,255,520,200" data-ods="2" alt="ODS 2">
-                    <!-- ... all 17 ODS areas ... -->
-                </map>
+            <nav class="main-nav">
+                <a href="#hero" class="logo">Investidor da Diáspora</a>
+                <ul class="nav-links">
+                    <li><a href="#why-invest">Porquê Investir</a></li>
+                    <li><a href="#opportunities">Oportunidades</a></li>
+                    <li><a href="#how-to-invest">Como Investir</a></li>
+                    <li><a href="#testimonials">Testemunhos</a></li>
+                    <li><a href="#instituicoes">Apoio</a></li>
+                    <li><a href="#download">Guia</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-                <!-- Overlay Content -->
-                <div class="ods-overlay" data-ods="1">
-                    <img src="./images/ods-1-detail.png" alt="ODS 1 Detail">
-                    <h3>Erradicação da Pobreza</h3>
-                    <p>Oportuniza acesso de homens e mulheres a recursos econômicos e proteção social.</p>
+    <main>
+        <!-- =======================
+        HERO SECTION
+        ======================== -->
+        <section class="hero" id="hero">
+            <div class="hero-content fade-in">
+                <h1>ÉS MEMBRO DA <strong>DIÁSPORA</strong> CABO-VERDIANA E GOSTARIAS DE CONHECER AS MELHORES <strong>OPORTUNIDADES DE INVESTIMENTO EM CABO VERDE</strong>?</h1>
+                <p>Então estás no lugar certo. Este site foi criado para lhe apresentar o "Guia do Investidor da Diáspora", uma ferramenta pensada para ajudar os membros da diáspora cabo-verdiana a descobrirem as melhores oportunidades de investimento em Cabo Verde.</p>
+                <a href="#download" class="cta-button">Fazer Download do Guia</a>
+            </div>
+        </section>
+
+        <!-- =======================
+        WHY INVEST SECTION (CORRECTED)
+        ======================== -->
+        <section class="info-section" id="why-invest">
+            <div class="container">
+                <h2 class="fade-in">Porquê investir em Cabo Verde?</h2>
+                <p class="section-subtitle fade-in">Cabo Verde tem um ambiente de negócios atrativo e propício ao investimento, com diversas vantagens estratégicas que fortalecem a confiança dos investidores:</p>
+                <div class="reasons-grid">
+                    <div class="reason-item fade-in">
+                        <img src="./images/icon-location.png" alt="Ícone de Localização" class="reason-icon">
+                        <h3>Localização Estratégica</h3>
+                        <p>Situado no cruzamento entre Europa, África e América, Cabo Verde é um ponto de conexão para comércio e negócios internacionais.</p>
+                    </div>
+                    <div class="reason-item fade-in">
+                        <img src="./images/icon-stability.png" alt="Ícone de Estabilidade" class="reason-icon">
+                        <h3>Estabilidade Política e Social</h3>
+                        <p>O país é reconhecido pela sua democracia consolidada, paz social e governança estável, fatores fundamentais para a segurança do investimento.</p>
+                    </div>
+                    <div class="reason-item fade-in">
+                        <img src="./images/icon-infra.png" alt="Ícone de Infraestruturas" class="reason-icon">
+                        <h3>Infraestruturas Modernas</h3>
+                        <p>Investimentos contínuos em portos, aeroportos, estradas e redes energéticas garantem boas condições para o desenvolvimento empresarial.</p>
+                    </div>
+                    <div class="reason-item fade-in">
+                        <img src="./images/icon-euro.svg" alt="Ícone do Euro" class="reason-icon">
+                        <h3>Paridade com o Euro</h3>
+                        <p>A moeda nacional (Escudo Cabo-verdiano) está indexada ao Euro, proporcionando estabilidade cambial para investidores estrangeiros.</p>
+                    </div>
+                    <div class="reason-item fade-in">
+                        <img src="./images/icon-climate.svg" alt="Ícone de Clima" class="reason-icon">
+                        <h3>Clima Estável e Sem Riscos de Saúde</h3>
+                        <p>Cabo Verde possui um clima tropical moderado e estável ao longo do ano, sem registro de epidemias ou riscos significativos à saúde pública.</p>
+                    </div>
+                    <div class="reason-item fade-in">
+                        <img src="./images/icon-capital.svg" alt="Ícone de Capitais" class="reason-icon">
+                        <h3>Livre Movimentação de Capitais</h3>
+                        <p>Políticas económicas permitem a transferência de fundos e repatriação de capitais sem restrições, favorecendo investimentos internacionais.</p>
+                    </div>
+                    <div class="reason-item fade-in">
+                        <img src="./images/icon-law.svg" alt="Ícone de Justiça" class="reason-icon">
+                        <h3>Estado de Direito e Transparência</h3>
+                        <p>O país mantém um forte compromisso com o Estado de Direito, promovendo um ambiente seguro e previsível para negócios.</p>
+                    </div>
+                    <div class="reason-item fade-in">
+                        <img src="./images/icon-population.svg" alt="Ícone de População" class="reason-icon">
+                        <h3>População Jovem e Qualificada</h3>
+                        <p>Cabo Verde conta com uma população jovem e capacitada, com crescente qualificação técnica e profissional, tornando-se um atrativo
+                            para setores inovadores e tecnológicos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =======================
+        OPPORTUNITIES SECTION
+        ======================== -->
+        <section class="info-section alternate-bg" id="opportunities">
+            <div class="container">
+                <h2 class="fade-in">Oportunidades de Negócio</h2>
+                <div class="opportunities-grid">
+                    <a href="#" class="opportunity-card fade-in" style="background-image: url('./images/agronegocio.jpg');"><div class="card-overlay"><h3>Agronegócio</h3></div></a>
+                    <a href="#" class="opportunity-card fade-in" style="background-image: url('./images/industria.jpg');"><div class="card-overlay"><h3>Indústria</h3></div></a>
+                    <a href="#" class="opportunity-card fade-in" style="background-image: url('./images/economia-digital.jpg');"><div class="card-overlay"><h3>Economia Digital</h3></div></a>
+                    <a href="#" class="opportunity-card fade-in" style="background-image: url('./images/turismo.jpg');"><div class="card-overlay"><h3>Turismo</h3></div></a>
+                    <a href="#" class="opportunity-card fade-in" style="background-image: url('./images/economia-verde.jpg');"><div class="card-overlay"><h3>Economia Verde</h3></div></a>
+                    <a href="#" class="opportunity-card fade-in" style="background-image: url('./images/economia-azul.jpg');"><div class="card-overlay"><h3>Economia Azul</h3></div></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =======================
+        HOW TO INVEST SECTION
+        ======================== -->
+        <section class="info-section" id="how-to-invest">
+            <div class="container">
+                <h2 class="fade-in">Como Investir?</h2>
+                <p class="section-subtitle fade-in">O processo de investimento em Cabo Verde é estruturado para ser transparente e seguro. Siga as etapas e consulte os recursos disponíveis para garantir o sucesso do seu projeto.</p>
+                <div class="steps-grid">
+                    <div class="step-item fade-in"><h4>1. Ideação e Pesquisa</h4><p>Identifique um setor promissor e valide a sua ideia de negócio.</p></div>
+                    <div class="step-item fade-in"><h4>2. Plano de Negócios</h4><p>Elabore um plano de negócios detalhado, incluindo análise financeira e marketing.</p></div>
+                    <div class="step-item fade-in"><h4>3. Formalização</h4><p>Registe a sua empresa e obtenha as licenças necessárias.</p></div>
+                    <div class="step-item fade-in"><h4>4. Financiamento</h4><p>Explore as opções de financiamento e os incentivos fiscais disponíveis.</p></div>
+                    <div class="step-item fade-in"><h4>5. Implementação</h4><p>Execute o seu plano, contrate pessoal e inicie as operações.</p></div>
+                    <div class="step-item fade-in"><h4>6. Apoio Contínuo</h4><p>Conecte-se com as instituições de apoio para suporte contínuo.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =======================
+        BENEFÍCIOS FISCAIS PARA INVESTIDORES DA DIÁSPORA
+        ======================== -->
+        <section class="info-section alternate-bg" id="beneficios-fiscais">
+            <div class="container">
+                <h2 class="fade-in">BENEFÍCIOS FISCAIS PARA INVESTIDORES DA DIÁSPORA</h2>
+                <div class="fade-in">
+                    <h3>Promotores</h3>
+                    <p>O Guia é uma iniciativa conjunta do Governo de Cabo Verde e da Organização Internacional para as Migrações (OIM).</p>
+                    <h3>Objetivos</h3>
+                    <ul>
+                        <li><strong>Facilitar o processo de investimento:</strong> Facilitar o processo de investimento da diáspora cabo-verdiana, proporcionando informações práticas e orientações estratégicas.</li>
+                        <li><strong>Promover o desenvolvimento:</strong> Integrar e apoiar a Diáspora cabo-verdiana no desenvolvimento econômico do país.</li>
+                        <li><strong>Fornecer informações:</strong> Apresentar o estatuto do investidor da diáspora, as oportunidades de negócio, os incentivos fiscais e apoios institucionais disponíveis.</li>
+                    </ul>
+                    <h3>Estatuto do Investidor da Diáspora</h3>
+                    <p>O Estatuto de Investidor da Diáspora é uma certificação oferecida pelo Governo de Cabo Verde para reconhecer e facilitar investimentos de cabo-verdianos residentes no exterior. Este estatuto proporciona uma série de benefícios fiscais, aduaneiros e administrativos, permitindo que a diáspora participe ativamente no desenvolvimento econômico do país e aceda a condições vantajosas para iniciar e expandir negócios.</p>
+                    <h4>Principais Benefícios</h4>
+                    <ul>
+                        <li><strong>Isenções Fiscais:</strong> Descontos e isenções de impostos em diversas áreas, como a aquisição de imóveis para o projeto e importação de equipamentos.</li>
+                        <li><strong>Facilidades Aduaneiras:</strong> Redução de taxas para importação de bens e matérias-primas essenciais para o negócio.</li>
+                        <li><strong>Apoio Administrativo:</strong> Acesso simplificado a serviços de apoio ao investidor, incluindo consultoria e suporte no processo de licenciamento.</li>
+                    </ul>
+                    <h4>Benefícios Fiscais Detalhados</h4>
+                    <h5>Projetos Pequenos e Médios (até CVE 500.000.000, cerca de €4,5 milhões)</h5>
+                    <ul>
+                        <li><strong>Isenção de Imposto Único sobre o Patrimônio:</strong> Na aquisição de imóveis para instalação de projetos.</li>
+                        <li><strong>Isenção de Imposto de Selo:</strong> Em contratos de financiamento e operações de crédito.</li>
+                        <li><strong>Isenção de Direitos Aduaneiros:</strong> Na importação de bens e equipamentos necessários para o projeto.</li>
+                    </ul>
+                    <h5>Projetos de Grande Dimensão (superiores a CVE 500.000.000)</h5>
+                    <ul>
+                        <li><strong>Apoio à Formação de Recursos Humanos:</strong> O Estado comparticipa até 50% dos custos de formação no primeiro ano de atividade.</li>
+                        <li><strong>Benefícios Fiscais Adicionais:</strong> Incentivos fiscais extras podem ser aplicados a projetos em áreas de menor desenvolvimento econômico, incluindo apoio logístico e financeiro.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- =======================
+        BLOGUE E ARTIGOS
+        ======================== -->
+        <section class="info-section" id="blog-artigos">
+            <div class="container">
+                <h2 class="fade-in">Blogue e artigos</h2>
+                <article class="fade-in">
+                    <h3>Financiamento de Negócios</h3>
+                    <p>O Governo de Cabo Verde tem sido um dinamizador importante do sistema financeiro através de várias iniciativas que visam, pela via de garantias do Estado e da Pró-Garante, reforçar as garantias de crédito e, por conseguinte, promover um acesso mais facilitado ao crédito pelas empresas junto da banca.</p>
+                    <p>Assim, a seguir sintetiza-se os vários atores do ecossistema de financiamento em Cabo Verde junto dos quais o investidor da Diáspora poderá mobilizar financiamentos para o seu negócio:</p>
+                    <table class="financiamento-table">
+                        <thead>
+                            <tr>
+                                <th>Modalidade</th>
+                                <th>Segmento e Atores</th>
+                                <th>Produtos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="4"><strong>Capital Alheio</strong></td>
+                                <td><strong>Bancário</strong><br>
+                                    Banco Comercial do Atlântico (BCA);<br>
+                                    Banco Cabo-verdiano de Negócios (BCN);<br>
+                                    Banco BAI Cabo Verde;<br>
+                                    Banco Interatlântico (BI);<br>
+                                    Caixa Económica de Cabo Verde;<br>
+                                    International Investment Bank (IIB);<br>
+                                    Ecobank Cabo Verde.
+                                </td>
+                                <td>
+                                    Crédito ao Investimento;<br>
+                                    Crédito de Tesouraria;<br>
+                                    Crédito ao Comércio Externo;<br>
+                                    Crédito Imobiliário;<br>
+                                    Leasing;<br>
+                                    Factoring.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Microcrédito</strong><br>
+                                    Morabi - Cooperativa de Poupança e Crédito;<br>
+                                    COOP - ADSIS Microfinanças;<br>
+                                    Citi.COOP;<br>
+                                    SOLMI - Sociedade Cooperativa de Poupança e Crédito;<br>
+                                    OMCV Crédito;<br>
+                                    SOLIDFGO COOP;<br>
+                                    FAMI-PICOS - Mutualidade de Poupança e Crédito;<br>
+                                    AMUSA - Associação para Mutualismo de Santo Antão.
+                                </td>
+                                <td>Microcrédito ao investimento e tesouraria.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fornecedores</strong><br>Empresas.</td>
+                                <td>Créditos comerciais.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Garantia</strong><br>Pró-Garante - Sociedade de Garantia Parcial de Crédito, S.A.</td>
+                                <td>Garantias associadas ao crédito bancário.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Capital Próprio</strong></td>
+                                <td>Capital de Risco:<br>Pró-Capital;<br>Fundo Pró-Impacto.</td>
+                                <td>Investimento acionista minoritário.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Misto</strong></td>
+                                <td>Mercado de Capitais:<br>Bolsa de Valores de Cabo Verde.</td>
+                                <td>Emissão de ações;<br>Emissão de obrigações;<br>Diáspora Bonds.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Outros</strong></td>
+                                <td>Mecanismos de Incentivo:<br>Estado de Cabo Verde.</td>
+                                <td>Incentivos fiscais;<br>Start-up Jovem;<br>Programas de Incubação.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h4>Banca Pan-Africana</h4>
+                    <p>Os novos bancos pan-africanos estão a impulsionar a expansão dos serviços financeiros e a integração económica em África, ajudando a desbloquear o enorme potencial de uma região em rápido crescimento. Destacam-se:</p>
+                    <h5>Banco Africano de Desenvolvimento – BAD</h5>
+                    <ul>
+                        <li>Empréstimos Soberanos com Garantia (NSGLS), Spread Fixo (FSLS), linhas de crédito e linhas de agência.</li>
+                        <li>Beneficiários: Mutuário não soberano garantido em qualquer país membro, entidades públicas e privadas.</li>
+                        <li>Prazo de pagamento: Até 15 anos, incluindo carência de 5 anos.</li>
+                    </ul>
+                    <h5>AFREXIMBANK – African Export-Import Bank</h5>
+                    <ul>
+                        <li>Financiamento restrito a projetos de exportação, industriais e de infraestrutura.</li>
+                        <li>Beneficiários: Entidades elegíveis que promovam projetos para África.</li>
+                        <li>Taxa de juro: Ligada ao Libor. Prazo máximo de 7 anos.</li>
+                    </ul>
+                    <h4>Desenvolvimento das Exportações</h4>
+                    <p>O Afreximbank possui um departamento de Desenvolvimento das Exportações, presta serviços de consultoria e reforço de capacidades para criar um ambiente propício à industrialização e ao desenvolvimento das exportações no continente.</p>
+                    <h4>Organismos Internacionais</h4>
+                    <h5>International Finance Corporation (IFC)</h5>
+                    <p>Membro do Grupo do Banco Mundial, financia iniciativas nos países em desenvolvimento, investindo no crescimento do setor privado, aliando o desenvolvimento económico às necessidades humanitárias.</p>
+                    <h5>United States African Development Foundation (USADF)</h5>
+                    <p>Agência criada pelo Congresso dos EUA para investir em organizações de base, especialmente pequenas empresas africanas. Concede subvenções de até 250 mil dólares para empresas e empreendedores sociais africanos carentes.</p>
+                    <ul>
+                        <li><a href="https://www.afreximbank.com/products-services/our-key-services/export-project-financing/project-related-financing/" target="_blank">Afreximbank - Project Related Financing</a></li>
+                        <li><a href="https://www.usadf.gov/what-we-do/products-and-services/how-to-apply/" target="_blank">USADF - How to Apply</a></li>
+                    </ul>
+                </article>
+                <article class="fade-in">
+                    <h3>Formação e Aconselhamento Empresarial</h3>
+                    <p>Os programas de reforço de capacidades apresentados adiante têm por objetivo promover o empreendedorismo como competência essencial e reforçar as capacidades dos empreendedores e investidores, especialmente nos domínios da gestão, governação, inclusão, garantia da qualidade e inovação, para que estejam mais bem preparados para o sucesso e colaborar com o setor privado/empresas/associações empresariais para explorar as oportunidades de negócio.</p>
+                    <h4>Boston</h4>
+                    <ul>
+                        <li>MA Entrepreneurship Events | Eventbrite – <a href="https://www.eventbrite.com/d/ma--boston/entrepreneurship/" target="_blank">https://www.eventbrite.com/d/ma--boston/entrepreneurship/</a></li>
+                        <li>Upcoming Entrepreneurship Events in Boston – <a href="https://allevents.in/boston/entrepreneurship" target="_blank">https://allevents.in/boston/entrepreneurship</a></li>
+                        <li>SBA - U.S. Small Business Administration – <a href="https://www.sba.gov/" target="_blank">https://www.sba.gov/</a></li>
+                        <li>SCORE Business Mentoring – <a href="https://www.sba.gov/local-assistance/resource-partners/score-business-mentoring" target="_blank">https://www.sba.gov/local-assistance/resource-partners/score-business-mentoring</a></li>
+                        <li>Small Business Development Centers (SBDC) – <a href="https://www.sba.gov/local-assistance/resource-partners/small-business-development-centers-sbdc" target="_blank">https://www.sba.gov/local-assistance/resource-partners/small-business-development-centers-sbdc</a></li>
+                    </ul>
+                    <h4>Lisboa</h4>
+                    <ul>
+                        <li>Gabinete de Apoio ao Empreendedor Migrante – <a href="https://www.acm.gov.pt" target="_blank">https://www.acm.gov.pt</a></li>
+                        <li>Semana do Empreendedorismo | Visit Lisboa – <a href="https://www.visitlisboa.com/pt-pt/eventos/semana-do-empreendedorismo-22" target="_blank">https://www.visitlisboa.com/pt-pt/eventos/semana-do-empreendedorismo-22</a></li>
+                        <li>Web Summit Lisbon, 13-16/November/2023 – <a href="https://websummit.com/" target="_blank">https://websummit.com/</a></li>
+                        <li>Startup Lisboa – <a href="https://www.startuplisboa.com/" target="_blank">https://www.startuplisboa.com/</a></li>
+                        <li>Eventbrite – Eventos de Negócios – <a href="https://www.eventbrite.com.br/d/portugal--lisboa/business/" target="_blank">https://www.eventbrite.com.br/d/portugal--lisboa/business/</a></li>
+                    </ul>
+                    <h4>Paris</h4>
+                    <ul>
+                        <li>Angelina County – <a href="http://elan-pepinieres-entreprises.fr/" target="_blank">http://elan-pepinieres-entreprises.fr/</a></li>
+                        <li>Eventbrite - Paris, France Startup Events – <a href="https://www.eventbrite.com/d/france--paris/startup-events/" target="_blank">https://www.eventbrite.com/d/france--paris/startup-events/</a></li>
+                        <li>Bpifrance Création – <a href="https://bpifrance-creation.fr/" target="_blank">https://bpifrance-creation.fr/</a></li>
+                        <li>Les Scop – <a href="https://www.les-scop.coop/" target="_blank">https://www.les-scop.coop/</a></li>
+                        <li>ADIE – <a href="https://www.adie.org/" target="_blank">https://www.adie.org/</a></li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- =======================
+        PRINCÍPIOS ORIENTADORES DO NEGÓCIO
+        ======================== -->
+        <section class="info-section alternate-bg" id="principios-orientadores">
+            <div class="container">
+                <h2 class="fade-in">Princípios Orientadores do Negócio</h2>
+                <div class="ods-pie-container fade-in" style="position: relative; max-width: 500px; margin: 0 auto;">
+                    <img src="./images/ods-pie.png" alt="ODS Pie" style="width: 100%; height: auto; display: block;">
+                    <!-- TODO: Add interactive hover areas and tooltips for each segment -->
+                    <svg id="ods-overlay" viewBox="0 0 851 851" style="position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none;">
+                        <!-- 17 segments, clockwise from top (segment 1 at 12 o'clock) -->
+                        <path data-ods="1" d="M425,85 A340,340 0 0,1 545,105 L520,200 A250,250 0 0,0 425,175 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="2" d="M545,105 A340,340 0 0,1 650,175 L590,255 A250,250 0 0,0 520,200 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="3" d="M650,175 A340,340 0 0,1 720,280 L630,320 A250,250 0 0,0 590,255 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="4" d="M720,280 A340,340 0 0,1 745,425 L640,425 A250,250 0 0,0 630,320 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="5" d="M745,425 A340,340 0 0,1 720,570 L630,530 A250,250 0 0,0 640,425 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="6" d="M720,570 A340,340 0 0,1 650,675 L590,595 A250,250 0 0,0 630,530 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="7" d="M650,675 A340,340 0 0,1 545,745 L520,650 A250,250 0 0,0 590,595 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="8" d="M545,745 A340,340 0 0,1 425,765 L425,660 A250,250 0 0,0 520,650 Z" fill="transparent" style="pointer-events:all;" />
+    <path data-ods="9" d="M425,765 A340,340 0 0,1 305,745 L330,650 A250,250 0 0,0 425,660 Z" fill="rgba(255,0,0,0.3)" style="pointer-events:all;" />
+    <path data-ods="10" d="M305,745 A340,340 0 0,1 200,675 L260,595 A250,250 0 0,0 330,650 Z" fill="rgba(0,255,0,0.3)" style="pointer-events:all;" />
+                        <path data-ods="11" d="M200,675 A340,340 0 0,1 130,570 L220,530 A250,250 0 0,0 260,595 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="12" d="M130,570 A340,340 0 0,1 105,425 L210,425 A250,250 0 0,0 220,530 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="13" d="M105,425 A340,340 0 0,1 130,280 L220,320 A250,250 0 0,0 210,425 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="14" d="M130,280 A340,340 0 0,1 200,175 L260,255 A250,250 0 0,0 220,320 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="15" d="M200,175 A340,340 0 0,1 305,105 L330,200 A250,250 0 0,0 260,255 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="16" d="M305,105 A340,340 0 0,1 425,85 L425,175 A250,250 0 0,0 330,200 Z" fill="transparent" style="pointer-events:all;" />
+                        <path data-ods="17" d="M425,85 A340,340 0 0,1 545,105 L520,200 A250,250 0 0,0 425,175 Z" fill="transparent" style="pointer-events:all; opacity:0;" /> <!-- Overlap for 17, can adjust as needed -->
+                    </svg>
+                    <div id="ods-image-overlay" style="display:block; background-image:url(./images/ods-9.png); position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); z-index:1000; width:600px; height:400px; background-size:contain; background-repeat:no-repeat; background-position:center; pointer-events:none;"></div>
+                </div>
+                <p style="text-align:center; margin-top:2rem;">Passe o mouse sobre cada segmento para ver os princípios orientadores correspondentes.</p>
+            </div>
+        </section>
+
+        <!-- =======================
+        TESTIMONIALS SECTION
+        ======================== -->
+        <section class="info-section alternate-bg" id="testimonials">
+            <div class="container">
+                <h2 class="fade-in">Vozes da Diáspora</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-avatar">
+                            <span class="avatar-initial">R</span>
+                        </div>
+                        <p class="quote">"É preciso planear, ter muita força de vontade, determinação, coragem e ir 'com tudo'. O que nos move é o amor a esta terra que nos faz enfrentar seus desafios."</p>
+                        <p class="author"><strong>Romina Dias</strong><br>Empresária, Setor da Saúde</p>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-avatar">
+                            <span class="avatar-initial">M</span>
+                        </div>
+                        <p class="quote">"A mola propulsora dos negócios que criamos foi o desejo de ajudar no desenvolvimento do país onde nasci."</p>
+                        <p class="author"><strong>Marcos Rodrigues</strong><br>Fundador, Empresa de Tecnologia</p>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-avatar">
+                            <span class="avatar-initial">M</span>
+                        </div>
+                        <p class="quote">"Encorajo que façam o trabalho de campo, que falem com as pessoas e identifiquem as oportunidades."</p>
+                        <p class="author"><strong>Michel dos Santos</strong><br>Investidor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- =======================
+        INSTITUTIONS/SUPPORT SECTION
+        ======================== -->
+        <section class="info-section alternate-bg" id="instituicoes">
+            <div class="container">
+                <h2 class="fade-in">Instituições de Apoio</h2>
+                <p class="section-subtitle fade-in">Cabo Verde conta com diversas instituições dedicadas ao apoio e promoção do investimento, oferecendo suporte especializado em todas as fases do seu projeto.</p>
+                
+                <div class="institutions-grid">
+                    <div class="institution-card fade-in">
+                        <h3>Cabo Verde Investimentos (CVI)</h3>
+                        <p>Agência nacional de promoção de investimentos que oferece apoio integral aos investidores, desde a conceção do projeto até à sua implementação.</p>
+                        <div class="contact-info">
+                            <p><strong>Contacto:</strong> info@cvinvestments.cv</p>
+                            <p><strong>Website:</strong> www.cvincestimentos.cv</p>
+                        </div>
+                    </div>
+                    
+                    <div class="institution-card fade-in">
+                        <h3>ADEI - Agência de Desenvolvimento Empresarial e Inovação</h3>
+                        <p>Promove o empreendedorismo e a inovação, oferecendo programas de incubação, aceleração e apoio ao desenvolvimento empresarial.</p>
+                        <div class="contact-info">
+                            <p><strong>Contacto:</strong> info@adei.cv</p>
+                            <p><strong>Website:</strong> www.adei.cv</p>
+                        </div>
+                    </div>
+                    
+                    <div class="institution-card fade-in">
+                        <h3>Pró-Empresa</h3>
+                        <p>Balcão único empresarial que simplifica os procedimentos de constituição e licenciamento de empresas em Cabo Verde.</p>
+                        <div class="contact-info">
+                            <p><strong>Contacto:</strong> info@proempresa.cv</p>
+                            <p><strong>Website:</strong> www.proempresa.cv</p>
+                        </div>
+                    </div>
+                    
+                    <div class="institution-card fade-in">
+                        <h3>DGCI - Direção Geral de Contribuições e Impostos</h3>
+                        <p>Entidade responsável pela administração fiscal, oferecendo informações sobre incentivos fiscais e regimes especiais para investidores.</p>
+                        <div class="contact-info">
+                            <p><strong>Contacto:</strong> info@dgci.gov.cv</p>
+                            <p><strong>Website:</strong> www.dgci.gov.cv</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="ods-overlay" data-ods="2">
-                    <img src="./images/ods-2-detail.png" alt="ODS 2 Detail">
-                    <h3>Fome Zero</h3>
-                    <p>Contribui para o acesso ao alimento e redução da fome.</p>
+                <div class="partners-section fade-in">
+                    <h3>Parceiros Estratégicos</h3>
+                    <div class="partners-grid">
+                        <img src="./images/logo-partner-1.png" alt="Parceiro 1" class="partner-logo">
+                        <img src="./images/logo-partner-2.png" alt="Parceiro 2" class="partner-logo">
+                        <img src="./images/logo-partner-3.png" alt="Parceiro 3" class="partner-logo">
+                        <img src="./images/logo-partner-4.png" alt="Parceiro 4" class="partner-logo">
+                        <img src="./images/logo-partner-5.png" alt="Parceiro 5" class="partner-logo">
+                        <img src="./images/logo-partner-6.png" alt="Parceiro 6" class="partner-logo">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- =======================
+        DOWNLOAD SECTION
+        ======================== -->
+        <section class="info-section" id="download">
+             <div class="container content-split">
+                <div class="text-content fade-in">
+                    <h2>Faça o Download do Guia</h2>
+                    <p>Obtenha a versão completa do "Guia do Investidor da Diáspora" para aceder a todas as informações detalhadas, contactos e recursos necessários.</p>
+                    <div class="download-buttons">
+                        <button class="download-btn" data-lang="pt">Português</button>
+                        <button class="download-btn" data-lang="en">English</button>
+                        <button class="download-btn" data-lang="fr">Français</button>
+                    </div>
+                </div>
+                <div class="image-content fade-in">
+                    <img src="./images/download-cover.jpg" alt="Capa do Guia">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =======================
+    FOOTER
+    ======================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Investidor da Diáspora</h4>
+                    <p>Uma iniciativa dedicada a conectar a diáspora cabo-verdiana com as melhores oportunidades de investimento em Cabo Verde.</p>
                 </div>
                 
-                <!-- ... repeat for all 17 ODS ... -->
+                <div class="footer-section">
+                    <h4>Contactos Úteis</h4>
+                    <ul>
+                        <li>Cabo Verde Investimentos: info@cvinvestments.cv</li>
+                        <li>ADEI: info@adei.cv</li>
+                        <li>Pró-Empresa: info@proempresa.cv</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#why-invest">Porquê Investir</a></li>
+                        <li><a href="#opportunities">Oportunidades</a></li>
+                        <li><a href="#how-to-invest">Como Investir</a></li>
+                        <li><a href="#download">Guia do Investidor</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Investidor da Diáspora. Todos os direitos reservados.</p>
+                <p>Desenvolvido em parceria com a <strong>OIM Cabo Verde</strong> (Organização Internacional para as Migrações).</p>
             </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- Existing footer and other sections -->
-
+    <!-- =======================
+    DOWNLOAD MODAL
+    ======================== -->
+    <div id="downloadModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h3>Download do Guia</h3>
+            <form id="downloadForm">
+                <input type="email" id="emailInput" placeholder="seu.email@exemplo.com" required>
+                <input type="hidden" id="langInput" value="">
+                <button type="submit">Receber o Guia</button>
+            </form>
+            <p id="formMessage" class="form-message"></p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
     <script>
-    // ODS Interaction
-    document.querySelectorAll('map area').forEach(area => {
-        area.addEventListener('mouseenter', function(e) {
-            const odsNumber = this.dataset.ods;
-            showOdsOverlay(odsNumber, this);
-        });
-        
-        area.addEventListener('mouseleave', function(e) {
-            hideOdsOverlay(odsNumber);
-        });
-    });
+// ODS segment descriptions (from the second image)
+const odsImages = {
+  1: 'ods-1.png',
+  2: 'ods-2.png',
+  3: 'ods-3.png',
+  4: 'ods-4.png',
+  5: 'ods-5.png',
+  6: 'ods-6.png',
+  7: 'ods-7.png',
+  8: 'ods-8.png',
+  9: 'ods-9.png',
+ 10: 'ods-10.png',
+ 11: 'ods-11.png',
+ 12: 'ods-12.png',
+ 13: 'ods-13.png',
+ 14: 'ods-14.png',
+ 15: 'ods-15.png',
+ 16: 'ods-16.png',
+ 17: 'ods-17.png'
+};
 
-    function showOdsOverlay(odsNumber, trigger) {
-        // Hide all overlays first
-        document.querySelectorAll('.ods-overlay').forEach(overlay => {
-            overlay.classList.remove('active');
-        });
-        
-        // Show correct overlay
-        const overlay = document.querySelector(`.ods-overlay[data-ods="${odsNumber}"]`);
-        if (overlay) {
-            // Get trigger position
-            const rect = trigger.getBoundingClientRect();
-            // Calculate centered position relative to viewport
-            const overlayWidth = overlay.offsetWidth;
-            const overlayHeight = overlay.offsetHeight;
-            const centerX = rect.left + (rect.width/2) - (overlayWidth/2);
-            const centerY = rect.top + (rect.height/2) - (overlayHeight/2);
-            
-            // Keep within viewport bounds
-            const viewportPadding = 20;
-            const finalX = Math.max(viewportPadding, Math.min(centerX, window.innerWidth - overlayWidth - viewportPadding));
-            const finalY = Math.max(viewportPadding, Math.min(centerY, window.innerHeight - overlayHeight - viewportPadding));
+// Approximate mapping of ODS segments to SVG paths (for demo, only 2 shown)
+const svg = document.getElementById('ods-overlay');
+const tooltip = document.getElementById('ods-tooltip');
 
-            overlay.style.left = `${finalX + window.scrollX}px`;
-            overlay.style.top = `${finalY + window.scrollY}px`;
-            overlay.classList.add('active');
-        }
+if (svg && tooltip) {
+  console.log('SVG overlay element found:', svg);
+  const paths = svg.querySelectorAll('path[data-ods]');
+  console.log(`Found ${paths.length} ODS path elements`);
+  
+  paths.forEach((path, index) => {
+    console.log(`Processing path ${index + 1} with data-ods: ${path.getAttribute('data-ods')}`);
+    
+    try {
+      path.addEventListener('mousemove', function(e) {
+        const ods = this.getAttribute('data-ods');
+        const overlay = document.getElementById('ods-image-overlay');
+        overlay.style.backgroundImage = `url(./images/ods-${ods}.png)`;
+        overlay.style.display = 'block';
+      });
+    } catch (error) {
+      console.error('Error adding mousemove listener:', error);
     }
 
-    function hideOdsOverlay() {
-        document.querySelectorAll('.ods-overlay').forEach(overlay => {
-            overlay.classList.remove('active');
-        });
+    try {
+      path.addEventListener('mouseleave', function() {
+        document.getElementById('ods-image-overlay').style.display = 'none';
+      });
+    } catch (error) {
+      console.error('Error adding mouseleave listener:', error);
     }
-    </script>
+  });
+}
+</script>
 </body>
 </html>
