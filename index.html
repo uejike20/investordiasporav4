@@ -337,7 +337,7 @@
                         <path data-ods="16" d="M305,105 A340,340 0 0,1 425,85 L425,175 A250,250 0 0,0 330,200 Z" fill="transparent" style="pointer-events:all;" />
                         <path data-ods="17" d="M425,85 A340,340 0 0,1 545,105 L520,200 A250,250 0 0,0 425,175 Z" fill="transparent" style="pointer-events:all; opacity:0;" /> <!-- Overlap for 17, can adjust as needed -->
                     </svg>
-                    <div id="ods-image-overlay" style="display:none; position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); z-index:1000; width:600px; height:400px; background-size:contain; background-repeat:no-repeat; background-position:center; pointer-events:none;"></div>
+                    <div id="ods-tooltip" style="display:none; position:absolute; left:0; top:0; background:rgba(0,0,0,0.85); color:#fff; padding:1rem; border-radius:8px; pointer-events:none; z-index:10; min-width:200px; max-width:300px; font-size:0.95rem;"></div>
                 </div>
                 <p style="text-align:center; margin-top:2rem;">Passe o mouse sobre cada segmento para ver os princípios orientadores correspondentes.</p>
             </div>
@@ -513,24 +513,24 @@
     <script src="script.js"></script>
     <script>
 // ODS segment descriptions (from the second image)
-const odsImages = {
-  1: 'ods-1.png',
-  2: 'ods-2.png',
-  3: 'ods-3.png',
-  4: 'ods-4.png',
-  5: 'ods-5.png',
-  6: 'ods-6.png',
-  7: 'ods-7.png',
-  8: 'ods-8.png',
-  9: 'ods-9.png',
- 10: 'ods-10.png',
- 11: 'ods-11.png',
- 12: 'ods-12.png',
- 13: 'ods-13.png',
- 14: 'ods-14.png',
- 15: 'ods-15.png',
- 16: 'ods-16.png',
- 17: 'ods-17.png'
+const odsDescriptions = {
+  1: '<strong>Erradicação da Pobreza</strong><br>Oportuniza acesso de homens e mulheres a recursos econômicos e proteção social.',
+  2: '<strong>Fome zero e agricultura sustentável</strong><br>Contribui para o acesso ao alimento e redução da fome. Oferta de produtos nutritivos e seguros.',
+  3: '<strong>Saúde e bem-estar</strong><br>Acesso a serviços essenciais para a qualidade de vida dos colaboradores. Exigência na cadeia de abastecimento de condições de trabalho em ambiente saudável e seguro.',
+  4: '<strong>Qualidade de educação</strong><br>Oportunidades de acesso à educação e desenvolvimento para funcionários, familiares e comunidades de entorno.',
+  5: '<strong>Igualdade de gênero</strong><br>Estimula a participação plena e efetiva das mulheres e a igualdade de oportunidades. Fomenta a ocupação de mulheres em cargos de liderança.',
+  6: '<strong>Água potável e saneamento</strong><br>Contribui com a qualidade da água e fomenta o uso eficiente do recurso hídrico.',
+  7: '<strong>Energia limpa e acessível</strong><br>Adoção de fontes renováveis e incorporação de tecnologias para ampliar a eficiência energética do seu processo produtivo.',
+  8: '<strong>Trabalho decente e crescimento econômico</strong><br>Geração de emprego e rendimento. Incentivo do trabalho decente na cadeia de valor. Estímulo ao empreendedorismo na comunidade.',
+  9: '<strong>Indústria, inovação e infraestrutura</strong><br>Promoção da industrialização inclusiva e sustentável. Modernização da infraestrutura. Fomento à tecnologia, à pesquisa e à inovação.',
+ 10: '<strong>Redução das desigualdades</strong><br>Estímulo ao empoderamento e à promoção da inclusão social e econômica.',
+ 11: '<strong>Cidades e comunidades sustentáveis</strong><br>Fomento à proteção e salvaguarda do patrimônio cultural e natural do mundo.',
+ 12: '<strong>Consumo e produção responsáveis</strong><br>Gestão sustentável e uso eficiente dos recursos naturais na produção. Redução do desperdício de alimentos. Realização de compras sustentáveis.',
+ 13: '<strong>Ação contra a mudança global do clima</strong><br>Otimização do processo para redução das emissões de GEE.',
+ 14: '<strong>Vida na água</strong><br>Realização de campanhas para conservação da zona costeira.',
+ 15: '<strong>Vida terrestre</strong><br>Preservação de fragmentos florestais, inclusive em áreas montanhosas e de terras áridas.',
+ 16: '<strong>Paz, justiça e instituições eficazes</strong><br>Atua contra a corrupção e o suborno em todas as suas formas.',
+ 17: '<strong>Parcerias e meios de implementação</strong><br>Incentivo e promoção de parcerias para o desenvolvimento sustentável.'
 };
 
 // Approximate mapping of ODS segments to SVG paths (for demo, only 2 shown)
@@ -548,9 +548,11 @@ if (svg && tooltip) {
     try {
       path.addEventListener('mousemove', function(e) {
         const ods = this.getAttribute('data-ods');
-        const overlay = document.getElementById('ods-image-overlay');
-        overlay.style.backgroundImage = `url(./images/ods-${ods}.png)`;
-        overlay.style.display = 'block';
+        tooltip.innerHTML = odsDescriptions[ods] || '';
+        tooltip.style.display = 'block';
+        const rect = svg.getBoundingClientRect();
+        tooltip.style.left = (e.clientX - rect.left + 20) + 'px';
+        tooltip.style.top = (e.clientY - rect.top - 10) + 'px';
       });
     } catch (error) {
       console.error('Error adding mousemove listener:', error);
@@ -558,7 +560,8 @@ if (svg && tooltip) {
 
     try {
       path.addEventListener('mouseleave', function() {
-        document.getElementById('ods-image-overlay').style.display = 'none';
+        console.log('Mouse left segment:', this.getAttribute('data-ods'));
+        tooltip.style.display = 'none';
       });
     } catch (error) {
       console.error('Error adding mouseleave listener:', error);
