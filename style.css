@@ -837,67 +837,94 @@ html.modal-open body::after { opacity: 1; }
     } 
 }
 
-/* Enhanced SDG Section with interactive effects */
+/* Enhanced SDG Wheel with improved browser compatibility */
 .sdg-container { 
     position: relative; 
-    display: block; 
-    max-width: 850px; 
+    display: flex; 
+    justify-content: center; 
+    max-width: 800px; 
     margin: 0 auto;
-    border-radius: 0;
-    overflow: visible;
-    box-shadow: none;
-    transition: transform 0.3s ease;
-    background: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
-.sdg-container:hover {
-    transform: none;
-}
+
 .sdg-base { 
-    display: block; 
     width: 100%; 
-    height: auto;
-    transition: transform 0.3s ease;
-    border-radius: 0;
+    height: auto; 
+    max-width: 600px; 
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -moz-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: filter, transform;
 }
-.sdg-container:hover .sdg-base {
-    transform: none;
-}
+
 .sdg-hover-image { 
     position: absolute; 
     top: 0; 
-    left: 0; 
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
     width: 100%; 
     height: auto; 
+    max-width: 600px;
     opacity: 0; 
     visibility: hidden; 
     pointer-events: none; 
-    transition: all 0.4s ease-in-out;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -moz-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border-radius: 0;
     z-index: 10;
+    will-change: opacity, visibility, transform;
 }
+
 .sdg-hover-image.visible { 
     opacity: 1; 
     visibility: visible;
-    transform: scale(1.02);
+    transform: translateX(-50%) scale(1.02);
+    -webkit-transform: translateX(-50%) scale(1.02);
+    -moz-transform: translateX(-50%) scale(1.02);
 }
 
 /* Enhanced hover areas for better interaction */
-.sdg-container area {
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.sdg-container area:hover {
-    cursor: pointer;
-}
-
-/* Highlight effect for hovered segments */
-.sdg-base {
-    transition: filter 0.3s ease;
-}
-
 .sdg-container:hover .sdg-base {
     filter: brightness(1.05);
+    -webkit-filter: brightness(1.05);
+}
+
+/* SDG Info overlay for better accessibility */
+.sdg-info-container {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    background: rgba(13, 47, 79, 0.95);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    max-width: 400px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -moz-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 20;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    will-change: opacity, visibility;
+}
+
+.sdg-info-container.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Responsive Design */
