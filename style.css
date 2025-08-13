@@ -235,9 +235,86 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 1rem; }
 .reason-item:nth-child(6) { animation-delay: 5s; }
 .reason-item:nth-child(7) { animation-delay: 6s; }
 .reason-item:nth-child(8) { animation-delay: 7s; }
+/* Enhanced Browser Compatibility Fixes */
 @keyframes floatCard {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { 
+        transform: translateY(0px); 
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+    }
+    50% { 
+        transform: translateY(-10px); 
+        -webkit-transform: translateY(-10px);
+        -moz-transform: translateY(-10px);
+    }
+}
+
+@-webkit-keyframes floatCard {
+    0%, 100% { -webkit-transform: translateY(0px); }
+    50% { -webkit-transform: translateY(-10px); }
+}
+
+@-moz-keyframes floatCard {
+    0%, 100% { -moz-transform: translateY(0px); }
+    50% { -moz-transform: translateY(-10px); }
+}
+
+/* Fix for Safari and WebKit browsers */
+@supports (-webkit-appearance: none) {
+    .opportunity-card {
+        -webkit-transform: perspective(800px) rotateX(8deg) translateY(8px);
+        -webkit-transform-origin: bottom center;
+        -webkit-filter: brightness(0.92);
+        -webkit-transition: all 420ms cubic-bezier(.22,.61,.36,1);
+    }
+    
+    .opportunity-card.visible { 
+        -webkit-transform: perspective(800px) rotateX(0deg) translateY(0);
+        -webkit-filter: brightness(1);
+    }
+    
+    .opportunity-card:hover {
+        -webkit-transform: perspective(800px) rotateX(0deg) translateY(-12px) scale(1.02);
+        -webkit-filter: brightness(1.1);
+    }
+}
+
+/* Fix for Firefox browsers */
+@supports (-moz-appearance: none) {
+    .opportunity-card {
+        -moz-transform: perspective(800px) rotateX(8deg) translateY(8px);
+        -moz-transform-origin: bottom center;
+        -moz-transition: all 420ms cubic-bezier(.22,.61,.36,1);
+    }
+    
+    .opportunity-card.visible { 
+        -moz-transform: perspective(800px) rotateX(0deg) translateY(0);
+    }
+    
+    .opportunity-card:hover {
+        -moz-transform: perspective(800px) rotateX(0deg) translateY(-12px) scale(1.02);
+    }
+}
+
+/* Enhanced Smooth Scrolling for all browsers */
+html {
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+    -moz-scroll-behavior: smooth;
+}
+
+/* Better browser support for backdrop-filter */
+.sdg-info-container {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    /* Fallback for browsers without backdrop-filter support */
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+    .sdg-info-container {
+        background: rgba(13, 47, 79, 0.98);
+    }
 }
 .reason-item::before {
     content: '';
