@@ -530,25 +530,27 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     if (sdgWheel) {
-        // Enhanced function to get goal number from angle with improved accuracy
+        // Enhanced goal mapping based on standard SDG wheel layout
+        // Goals are arranged clockwise starting from the top (12 o'clock position)
         const getGoalFromAngle = (angle) => {
-            // Normalize angle to 0-360 degrees
+            // Normalize angle to 0-360 range
             angle = ((angle % 360) + 360) % 360;
             
-            // Each segment is 360/17 = ~21.176 degrees
-            const segmentSize = 360 / 17;
+            // Adjust for starting position - SDG 1 is typically at the top
+            // Rotate by -90 degrees to make 0° point upward instead of rightward
+            angle = (angle - 90 + 360) % 360;
             
-            // Adjust for starting position - Goal 1 starts at approximately 270 degrees (top of circle)
-            // We add half a segment to center the detection zones
-            const adjustedAngle = (angle + 270 + (segmentSize / 2)) % 360;
+            // Each goal occupies 360/17 ≈ 21.176 degrees
+            const goalSize = 360 / 17;
             
-            const segmentIndex = Math.floor(adjustedAngle / segmentSize);
+            // Standard SDG wheel layout clockwise from top:
+            const goalOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
             
-            // Map segment index to goal number (clockwise from goal 1 at top)
-            // Updated mapping based on the actual SDG wheel layout
-            const goalMapping = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+            // Calculate which segment the angle falls into
+            const segment = Math.floor(angle / goalSize);
             
-            return goalMapping[segmentIndex] || 1;
+            // Return the corresponding goal (with bounds checking)
+            return goalOrder[segment % 17];
         };
 
         // Function to hide all hover images and info with better performance
