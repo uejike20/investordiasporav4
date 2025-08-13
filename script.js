@@ -435,26 +435,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // 7. INTERACTIVE SDG WHEEL LOGIC (JAVASCRIPT-BASED APPROACH)
+    // 7. ENHANCED INTERACTIVE SDG WHEEL LOGIC WITH IMPROVED BROWSER COMPATIBILITY
     const sdgWheel = document.getElementById('sdg-wheel');
     const hoverImages = document.querySelectorAll('.sdg-hover-image');
+    const sdgInfoContainer = document.getElementById('sdg-info-container');
     
-    // SDG Goals data with Portuguese descriptions
+    // Enhanced SDG Goals data with all 17 goals having images
     const sdgData = {
         1: {
             title: "Erradicação da Pobreza",
             description: "Oportuniza direta e indiretamente o acesso de homens e mulheres a recursos económicos e proteção social.",
-            hasImage: false
+            hasImage: true
         },
         2: {
             title: "Fome Zero e Agricultura Sustentável", 
             description: "Contribui para o acesso ao alimento e redução da fome. Oferta de produtos nutritivos e seguros.",
-            hasImage: false
+            hasImage: true
         },
         3: {
             title: "Saúde e Bem-estar",
             description: "Acesso a serviços essenciais para a qualidade de vida dos colaboradores. Exigência na cadeia de abastecimento de condições de trabalho em ambiente saudável e seguro.",
-            hasImage: false
+            hasImage: true
         },
         4: {
             title: "Qualidade de Educação",
@@ -489,122 +490,124 @@ document.addEventListener('DOMContentLoaded', () => {
         10: {
             title: "Redução das Desigualdades",
             description: "Estímulo ao empoderamento e à promoção da inclusão social e económica.",
-            hasImage: false
+            hasImage: true
         },
         11: {
             title: "Cidades e Comunidades Sustentáveis",
             description: "Fomento à proteção e salvaguarda do património cultural e natural do mundo.",
-            hasImage: false
+            hasImage: true
         },
         12: {
             title: "Consumo e Produção Responsáveis",
             description: "Gestão sustentável e o uso eficiente dos recursos naturais na produção. Redução do desperdício de alimentos. Realização de compras sustentáveis.",
-            hasImage: false
+            hasImage: true
         },
         13: {
             title: "Ação contra a Mudança Global do Clima",
             description: "Otimização do processo para redução das emissões de GEE.",
-            hasImage: false
+            hasImage: true
         },
         14: {
             title: "Vida na Água",
             description: "Realização de campanhas para conservação da zona costeira.",
-            hasImage: false
+            hasImage: true
         },
         15: {
             title: "Vida Terrestre",
             description: "Preservação de fragmentos florestais, inclusive em áreas montanhosas e de terras áridas.",
-            hasImage: false
+            hasImage: true
         },
         16: {
             title: "Paz, Justiça e Instituições Eficazes",
             description: "Atua contra a corrupção e o suborno em todas as suas formas.",
-            hasImage: false
+            hasImage: true
         },
         17: {
             title: "Parcerias e Meios de Implementação",
             description: "Incentivo e promoção de parcerias para o desenvolvimento sustentável.",
-            hasImage: false
+            hasImage: true
         }
     };
     
     if (sdgWheel) {
-        
-        // Function to get goal number from angle (17 segments, starting from top)
+        // Enhanced function to get goal number from angle with improved accuracy
         const getGoalFromAngle = (angle) => {
             // Normalize angle to 0-360 degrees
             angle = ((angle % 360) + 360) % 360;
             
-            // Each segment is 360/17 = ~21.18 degrees
+            // Each segment is 360/17 = ~21.176 degrees
             const segmentSize = 360 / 17;
             
-            // Start from top (goal 1) and go clockwise
-            // Goal 1 is at the top (270 degrees in standard coords, but we adjust for starting at top)
-            const adjustedAngle = (angle + 90) % 360; // Rotate so 0 degrees is at top
+            // Adjust for starting position - Goal 1 starts at approximately 270 degrees (top of circle)
+            // We add half a segment to center the detection zones
+            const adjustedAngle = (angle + 270 + (segmentSize / 2)) % 360;
             
             const segmentIndex = Math.floor(adjustedAngle / segmentSize);
             
             // Map segment index to goal number (clockwise from goal 1 at top)
-            const goalMapping = [1, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2];
+            // Updated mapping based on the actual SDG wheel layout
+            const goalMapping = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
             
             return goalMapping[segmentIndex] || 1;
         };
 
-        // Function to hide all hover images and info
+        // Function to hide all hover images and info with better performance
         const hideAllHovers = () => {
-            hoverImages.forEach(img => {
-                img.classList.remove('visible');
+            // Use requestAnimationFrame for smoother performance
+            requestAnimationFrame(() => {
+                hoverImages.forEach(img => {
+                    img.classList.remove('visible');
+                });
+                hideSDGInfo();
             });
-            hideSDGInfo();
         };
 
-        // Function to show SDG info as overlay text when no image is available
+        // Enhanced function to show SDG info with accessibility improvements
         const showSDGInfo = (goalNumber) => {
             const data = sdgData[goalNumber];
-            if (!data) return;
+            if (!data || !sdgInfoContainer) return;
             
-            let infoBox = document.getElementById('sdg-info-box');
-            if (!infoBox) {
-                infoBox = document.createElement('div');
-                infoBox.id = 'sdg-info-box';
-                infoBox.className = 'sdg-info-overlay';
-                document.querySelector('.sdg-container').appendChild(infoBox);
-            }
-            
-            infoBox.innerHTML = `
+            sdgInfoContainer.innerHTML = `
                 <div class="sdg-info-content">
-                    <h3>${data.title}</h3>
+                    <h4>ODS ${goalNumber}: ${data.title}</h4>
                     <p>${data.description}</p>
                 </div>
             `;
-            infoBox.classList.add('visible');
+            
+            // Use requestAnimationFrame for smooth transitions
+            requestAnimationFrame(() => {
+                sdgInfoContainer.classList.add('visible');
+            });
+            
+            // Announce to screen readers
+            sdgInfoContainer.setAttribute('aria-label', `ODS ${goalNumber}: ${data.title}`);
         };
 
         const hideSDGInfo = () => {
-            const infoBox = document.getElementById('sdg-info-box');
-            if (infoBox) {
-                infoBox.classList.remove('visible');
+            if (sdgInfoContainer) {
+                sdgInfoContainer.classList.remove('visible');
             }
         };
 
-        // Function to show goal information (image or text overlay)
+        // Enhanced function to show goal information with better performance
         const showGoal = (goalNumber) => {
             const data = sdgData[goalNumber];
             if (!data) return;
 
-            if (data.hasImage) {
-                // Show hover image if available
-                const imageToShow = document.getElementById(`goal-${goalNumber}-image`);
-                if (imageToShow) {
+            // All goals now have images
+            const imageToShow = document.getElementById(`goal-${goalNumber}-image`);
+            if (imageToShow) {
+                // Use requestAnimationFrame for smooth animations
+                requestAnimationFrame(() => {
                     imageToShow.classList.add('visible');
-                }
-            } else {
-                // Show text overlay for goals without images
+                });
+                
+                // Also show info for accessibility
                 showSDGInfo(goalNumber);
             }
         };
 
-        // Get mouse position relative to the wheel center
+        // Enhanced mouse position calculation with better accuracy
         const getMouseAngle = (event) => {
             const rect = sdgWheel.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
@@ -613,13 +616,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const mouseX = event.clientX - centerX;
             const mouseY = event.clientY - centerY;
             
-            // Calculate angle in degrees
+            // Calculate angle in degrees with improved precision
             let angle = Math.atan2(mouseY, mouseX) * (180 / Math.PI);
+            
+            // Ensure angle is positive
+            if (angle < 0) {
+                angle += 360;
+            }
             
             return angle;
         };
 
-        // Check if mouse is within the wheel (not in the center hole)
+        // Enhanced function to check if mouse is within the wheel
         const isInWheel = (event) => {
             const rect = sdgWheel.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
@@ -629,43 +637,58 @@ document.addEventListener('DOMContentLoaded', () => {
             const mouseY = event.clientY - centerY;
             const distance = Math.sqrt(mouseX * mouseX + mouseY * mouseY);
             
-            // Wheel outer radius (half of image width) and inner radius (for the center hole)
-            const outerRadius = rect.width / 2;
-            const innerRadius = outerRadius * 0.3; // Adjust based on your wheel's inner hole size
+            // More precise radius calculations
+            const outerRadius = Math.min(rect.width, rect.height) / 2;
+            const innerRadius = outerRadius * 0.25; // Adjusted for better detection
             
             return distance >= innerRadius && distance <= outerRadius;
         };
 
         let currentGoal = null;
+        let hoverTimeout = null;
 
-        // Mouse move handler for hover effects
+        // Enhanced mouse move handler with throttling for better performance
         const handleMouseMove = (event) => {
-            if (isInWheel(event)) {
-                const angle = getMouseAngle(event);
-                const goal = getGoalFromAngle(angle);
-                
-                if (goal !== currentGoal) {
-                    hideAllHovers();
-                    showGoal(goal);
-                    currentGoal = goal;
-                    sdgWheel.style.cursor = 'pointer';
-                }
-            } else {
-                if (currentGoal !== null) {
-                    hideAllHovers();
-                    currentGoal = null;
-                    sdgWheel.style.cursor = 'default';
-                }
+            // Throttle mousemove events for better performance
+            if (hoverTimeout) {
+                clearTimeout(hoverTimeout);
             }
+            
+            hoverTimeout = setTimeout(() => {
+                if (isInWheel(event)) {
+                    const angle = getMouseAngle(event);
+                    const goal = getGoalFromAngle(angle);
+                    
+                    if (goal !== currentGoal) {
+                        hideAllHovers();
+                        showGoal(goal);
+                        currentGoal = goal;
+                        sdgWheel.style.cursor = 'pointer';
+                    }
+                } else {
+                    if (currentGoal !== null) {
+                        hideAllHovers();
+                        currentGoal = null;
+                        sdgWheel.style.cursor = 'default';
+                    }
+                }
+            }, 10); // 10ms throttle for smooth but efficient updates
         };
 
-        // Click handler for mobile/touch devices
+        // Enhanced click handler for touch devices with better feedback
         const handleClick = (event) => {
+            event.preventDefault();
+            
             if (isInWheel(event)) {
                 const angle = getMouseAngle(event);
                 const goal = getGoalFromAngle(angle);
                 
-                // Toggle the display - if same goal clicked, hide it
+                // Enhanced feedback for mobile devices
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(50); // Subtle haptic feedback
+                }
+                
+                // Toggle behavior for touch devices
                 if (currentGoal === goal) {
                     hideAllHovers();
                     currentGoal = null;
@@ -680,17 +703,58 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Mouse leave handler
+        // Enhanced mouse leave handler
         const handleMouseLeave = () => {
+            if (hoverTimeout) {
+                clearTimeout(hoverTimeout);
+            }
             hideAllHovers();
             currentGoal = null;
             sdgWheel.style.cursor = 'default';
         };
 
-        // Add event listeners
-        sdgWheel.addEventListener('mousemove', handleMouseMove);
+        // Touch event handlers for better mobile support
+        const handleTouchStart = (event) => {
+            event.preventDefault();
+            const touch = event.touches[0];
+            handleClick(touch);
+        };
+
+        const handleTouchMove = (event) => {
+            event.preventDefault();
+            const touch = event.touches[0];
+            handleMouseMove(touch);
+        };
+
+        // Add event listeners with passive options for better performance
+        sdgWheel.addEventListener('mousemove', handleMouseMove, { passive: true });
         sdgWheel.addEventListener('click', handleClick);
-        sdgWheel.addEventListener('mouseleave', handleMouseLeave);
+        sdgWheel.addEventListener('mouseleave', handleMouseLeave, { passive: true });
+        
+        // Enhanced touch support
+        sdgWheel.addEventListener('touchstart', handleTouchStart, { passive: false });
+        sdgWheel.addEventListener('touchmove', handleTouchMove, { passive: false });
+        sdgWheel.addEventListener('touchend', handleMouseLeave, { passive: true });
+
+        // Keyboard navigation support for accessibility
+        sdgWheel.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                // Cycle through goals with keyboard
+                const nextGoal = currentGoal ? (currentGoal % 17) + 1 : 1;
+                hideAllHovers();
+                showGoal(nextGoal);
+                currentGoal = nextGoal;
+            } else if (event.key === 'Escape') {
+                hideAllHovers();
+                currentGoal = null;
+            }
+        });
+
+        // Make wheel focusable for keyboard navigation
+        sdgWheel.setAttribute('tabindex', '0');
+        sdgWheel.setAttribute('role', 'button');
+        sdgWheel.setAttribute('aria-label', 'Roda interativa dos Objetivos de Desenvolvimento Sustentável');
 
         // Hide info when clicking outside the SDG container
         document.addEventListener('click', function(e) {
@@ -699,7 +763,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 hideAllHovers();
                 currentGoal = null;
             }
-        });
+        }, { passive: true });
     }
 
 
