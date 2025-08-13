@@ -947,7 +947,7 @@ html.modal-open body::after { opacity: 1; }
     -moz-transform: translateX(-50%);
     width: 100%; 
     height: auto; 
-    max-width: 600px;
+    max-width: 800px;
     opacity: 0; 
     visibility: hidden; 
     pointer-events: none; 
