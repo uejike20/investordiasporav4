@@ -919,6 +919,7 @@ html.modal-open body::after { opacity: 1; }
     position: relative; 
     display: flex; 
     justify-content: center; 
+    align-items: center;
     max-width: 800px; 
     margin: 0 auto;
     user-select: none;
@@ -936,17 +937,16 @@ html.modal-open body::after { opacity: 1; }
     -webkit-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     -moz-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: filter, transform;
+    position: relative;
+    z-index: 1;
 }
 
 .sdg-hover-image { 
     position: absolute; 
     top: 0; 
-    left: 50%;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
+    left: 0;
     width: 100%; 
-    height: auto; 
+    height: 100%; 
     max-width: 800px;
     opacity: 0; 
     visibility: hidden; 
@@ -957,14 +957,15 @@ html.modal-open body::after { opacity: 1; }
     border-radius: 0;
     z-index: 10;
     will-change: opacity, visibility, transform;
+    object-fit: contain;
 }
 
 .sdg-hover-image.visible { 
     opacity: 1; 
     visibility: visible;
-    transform: translateX(-50%) scale(1.02);
-    -webkit-transform: translateX(-50%) scale(1.02);
-    -moz-transform: translateX(-50%) scale(1.02);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
 }
 
 /* Enhanced hover areas for better interaction */

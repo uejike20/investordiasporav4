@@ -530,20 +530,21 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     if (sdgWheel) {
-        // Enhanced goal mapping based on standard SDG wheel layout
-        // Goals are arranged clockwise starting from the top (12 o'clock position)
+        // Enhanced goal mapping based on the actual SDG wheel image layout
+        // Based on the visual analysis of the wheel, goals are arranged clockwise from top-right
         const getGoalFromAngle = (angle) => {
             // Normalize angle to 0-360 range
             angle = ((angle % 360) + 360) % 360;
             
-            // Adjust for starting position - SDG 1 is typically at the top
-            // Rotate by -90 degrees to make 0° point upward instead of rightward
-            angle = (angle - 90 + 360) % 360;
+            // Adjust for starting position - SDG 1 is at the top-right (around 45 degrees)
+            // Rotate by -45 degrees to align with the actual wheel layout
+            angle = (angle - 45 + 360) % 360;
             
             // Each goal occupies 360/17 ≈ 21.176 degrees
             const goalSize = 360 / 17;
             
-            // Standard SDG wheel layout clockwise from top:
+            // Based on the visual wheel layout, clockwise from top-right:
+            // This mapping needs to be calibrated based on the actual wheel image
             const goalOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
             
             // Calculate which segment the angle falls into
@@ -552,6 +553,68 @@ document.addEventListener('DOMContentLoaded', () => {
             // Return the corresponding goal (with bounds checking)
             return goalOrder[segment % 17];
         };
+        
+        // Precise mapping based on actual angle measurements
+        const getGoalFromAngleV2 = (angle) => {
+            // Normalize angle to 0-360 range
+            angle = ((angle % 360) + 360) % 360;
+            
+            // Define angle ranges for each goal based on the provided measurements
+            const goalRanges = [
+                { goal: 1, min: 275.4, max: 297.3 },
+                { goal: 2, min: 297.3, max: 318.6 },
+                { goal: 3, min: 318.6, max: 340.7 },
+                { goal: 4, min: 340.7, max: 360 },
+                { goal: 5, min: 0, max: 21.2 },
+                { goal: 6, min: 21.2, max: 42.4 },
+                { goal: 7, min: 42.4, max: 63.6 },
+                { goal: 8, min: 63.6, max: 84.8 },
+                { goal: 9, min: 84.8, max: 106.4 },
+                { goal: 10, min: 106.4, max: 127.5 },
+                { goal: 11, min: 127.5, max: 148.3 },
+                { goal: 12, min: 148.3, max: 169.8 },
+                { goal: 13, min: 169.8, max: 192 },
+                { goal: 14, min: 192, max: 211 },
+                { goal: 15, min: 211, max: 233 },
+                { goal: 16, min: 233, max: 256 },
+                { goal: 17, min: 256, max: 275.4 }
+            ];
+            
+            // Find which range the angle falls into
+            for (const range of goalRanges) {
+                if (range.min <= range.max) {
+                    // Normal range (e.g., 0-21.2)
+                    if (angle >= range.min && angle < range.max) {
+                        return range.goal;
+                    }
+                } else {
+                    // Wrapped range (e.g., 340.7-360 or 0-21.2)
+                    if (angle >= range.min || angle < range.max) {
+                        return range.goal;
+                    }
+                }
+            }
+            
+            // Fallback to goal 5 if no range matches (shouldn't happen with proper ranges)
+            return 5;
+        };
+        
+        // Test function to verify the mapping works correctly
+        const testMapping = () => {
+            console.log('=== SDG Wheel Mapping Test ===');
+            const testAngles = [275.4, 297.3, 318.6, 340.7, 0, 21.2, 42.4, 63.6, 84.8, 106.4, 127.5, 148.3, 169.8, 192, 211, 233, 256];
+            
+            testAngles.forEach((angle, index) => {
+                const goal = getGoalFromAngleV2(angle);
+                const expectedGoal = index + 1;
+                console.log(`Angle ${angle}°: Expected=${expectedGoal}, Got=${goal} ${goal === expectedGoal ? '✅' : '❌'}`);
+            });
+        };
+        
+        // Run mapping test on load
+        testMapping();
+        
+
 
         // Function to hide all hover images and info with better performance
         const hideAllHovers = () => {
@@ -561,6 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     img.classList.remove('visible');
                 });
                 hideSDGInfo();
+                // console.log('Hiding all hover images');
             });
         };
 
@@ -599,6 +663,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // All goals now have images
             const imageToShow = document.getElementById(`goal-${goalNumber}-image`);
             if (imageToShow) {
+                // Hide all other images first
+                hoverImages.forEach(img => {
+                    img.classList.remove('visible');
+                });
+                
                 // Use requestAnimationFrame for smooth animations
                 requestAnimationFrame(() => {
                     imageToShow.classList.add('visible');
@@ -606,6 +675,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Also show info for accessibility
                 showSDGInfo(goalNumber);
+                
+                // Debug logging
+                // console.log(`Showing goal ${goalNumber}: ${data.title}`);
             }
         };
 
@@ -626,6 +698,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 angle += 360;
             }
             
+            // Debug logging (remove in production)
+            // console.log(`Mouse angle: ${angle.toFixed(2)}°, Goal: ${getGoalFromAngle(angle)}`);
+            
             return angle;
         };
 
@@ -639,33 +714,40 @@ document.addEventListener('DOMContentLoaded', () => {
             const mouseY = event.clientY - centerY;
             const distance = Math.sqrt(mouseX * mouseX + mouseY * mouseY);
             
-            // More precise radius calculations
+            // More precise radius calculations based on the actual wheel design
             const outerRadius = Math.min(rect.width, rect.height) / 2;
-            const innerRadius = outerRadius * 0.25; // Adjusted for better detection
+            const innerRadius = outerRadius * 0.15; // Smaller inner radius for better precision
             
-            return distance >= innerRadius && distance <= outerRadius;
+            // Add some tolerance for easier interaction
+            const tolerance = outerRadius * 0.05;
+            
+            return distance >= (innerRadius - tolerance) && distance <= (outerRadius + tolerance);
         };
 
         let currentGoal = null;
         let hoverTimeout = null;
 
-        // Enhanced mouse move handler with throttling for better performance
+        // Enhanced mouse move handler with improved responsiveness
         const handleMouseMove = (event) => {
-            // Throttle mousemove events for better performance
+            // Use requestAnimationFrame for smoother performance
             if (hoverTimeout) {
                 clearTimeout(hoverTimeout);
             }
             
-            hoverTimeout = setTimeout(() => {
+            hoverTimeout = requestAnimationFrame(() => {
                 if (isInWheel(event)) {
                     const angle = getMouseAngle(event);
-                    const goal = getGoalFromAngle(angle);
+                    // Try the alternative mapping first
+                    const goal = getGoalFromAngleV2(angle);
                     
                     if (goal !== currentGoal) {
                         hideAllHovers();
                         showGoal(goal);
                         currentGoal = goal;
                         sdgWheel.style.cursor = 'pointer';
+                        
+                        // Debug: log the angle and goal (can be removed in production)
+                        // console.log(`Angle: ${angle.toFixed(1)}°, Goal: ${goal}`);
                     }
                 } else {
                     if (currentGoal !== null) {
@@ -674,7 +756,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         sdgWheel.style.cursor = 'default';
                     }
                 }
-            }, 10); // 10ms throttle for smooth but efficient updates
+            });
         };
 
         // Enhanced click handler for touch devices with better feedback
@@ -683,7 +765,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (isInWheel(event)) {
                 const angle = getMouseAngle(event);
-                const goal = getGoalFromAngle(angle);
+                const goal = getGoalFromAngleV2(angle);
                 
                 // Enhanced feedback for mobile devices
                 if ('vibrate' in navigator) {
@@ -757,6 +839,8 @@ document.addEventListener('DOMContentLoaded', () => {
         sdgWheel.setAttribute('tabindex', '0');
         sdgWheel.setAttribute('role', 'button');
         sdgWheel.setAttribute('aria-label', 'Roda interativa dos Objetivos de Desenvolvimento Sustentável');
+        
+
 
         // Hide info when clicking outside the SDG container
         document.addEventListener('click', function(e) {
