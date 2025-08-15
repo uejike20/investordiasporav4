@@ -1145,6 +1145,51 @@ html.modal-open body::after { opacity: 1; }
     .opportunity-card:hover {
         transform: translateY(-5px);
     }
+    
+    /* Mobile SDG Wheel optimizations */
+    .sdg-container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    
+    .sdg-base {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .sdg-hover-image {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        pointer-events: auto;
+        touch-action: manipulation;
+    }
+    
+    .sdg-hover-image.visible {
+        transform: scale(1.05);
+    }
+    
+    /* Mobile touch feedback */
+    .sdg-base:active {
+        transform: scale(0.98);
+    }
+    
+    /* Mobile info container positioning */
+    .sdg-info-container {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 1rem;
+        max-width: 100%;
+        font-size: 1rem;
+        padding: 15px;
+    }
 }
 
 /* Extra small screens (iPhone SE, etc.) */
@@ -1170,6 +1215,20 @@ html.modal-open body::after { opacity: 1; }
     
     .hero-content {
         padding: 0 0.25rem;
+    }
+    
+    /* Extra small screen SDG wheel */
+    .sdg-container {
+        padding: 0 0.5rem;
+    }
+    
+    .sdg-base {
+        max-width: 100%;
+    }
+    
+    .sdg-info-container {
+        font-size: 0.9rem;
+        padding: 12px;
     }
 }
 
