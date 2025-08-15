@@ -614,11 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Run mapping test on load
         testMapping();
         
-        // Update instruction text for mobile devices
-        const instructionElement = document.getElementById('sdg-instruction');
-        if (instructionElement && isMobile) {
-            instructionElement.textContent = 'Toque nos segmentos para ver os detalhes de cada Objetivo de Desenvolvimento Sustentável.';
-        }
+
         
 
 
@@ -733,16 +729,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentGoal = null;
         let hoverTimeout = null;
         
-        // Detect if we're on a mobile device
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-                        ('ontouchstart' in window) || 
-                        (navigator.maxTouchPoints > 0);
+
 
         // Enhanced mouse move handler with improved responsiveness
         const handleMouseMove = (event) => {
-            // On mobile, don't use mouse move for hover effects
-            if (isMobile) return;
-            
             // Use requestAnimationFrame for smoother performance
             if (hoverTimeout) {
                 clearTimeout(hoverTimeout);
@@ -786,16 +776,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     navigator.vibrate(50); // Subtle haptic feedback
                 }
                 
-                // For mobile, always show the goal (no toggle behavior)
-                hideAllHovers();
-                showGoal(goal);
-                currentGoal = goal;
-                
-                // Add visual feedback
-                sdgWheel.style.filter = 'brightness(1.1)';
-                setTimeout(() => {
-                    sdgWheel.style.filter = 'brightness(1)';
-                }, 200);
+                // Toggle behavior for touch devices
+                if (currentGoal === goal) {
+                    hideAllHovers();
+                    currentGoal = null;
+                } else {
+                    hideAllHovers();
+                    showGoal(goal);
+                    currentGoal = goal;
+                }
             } else {
                 hideAllHovers();
                 currentGoal = null;
@@ -812,15 +801,10 @@ document.addEventListener('DOMContentLoaded', () => {
             sdgWheel.style.cursor = 'default';
         };
 
-        // Enhanced touch event handlers for better mobile support
+        // Touch event handlers for better mobile support
         const handleTouchStart = (event) => {
             event.preventDefault();
             const touch = event.touches[0];
-            
-            // Add visual feedback for touch
-            sdgWheel.style.transform = 'scale(0.98)';
-            
-            // Handle the touch
             handleClick(touch);
         };
 
@@ -828,18 +812,6 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             const touch = event.touches[0];
             handleMouseMove(touch);
-        };
-        
-        const handleTouchEnd = (event) => {
-            // Remove visual feedback
-            sdgWheel.style.transform = 'scale(1)';
-            
-            // Don't hide on touch end for mobile - let user see the result
-            // Only hide if they touch outside the wheel
-            if (!isInWheel(event.changedTouches[0])) {
-                hideAllHovers();
-                currentGoal = null;
-            }
         };
 
         // Add event listeners with passive options for better performance
@@ -850,7 +822,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Enhanced touch support
         sdgWheel.addEventListener('touchstart', handleTouchStart, { passive: false });
         sdgWheel.addEventListener('touchmove', handleTouchMove, { passive: false });
-        sdgWheel.addEventListener('touchend', handleTouchEnd, { passive: true });
+        sdgWheel.addEventListener('touchend', handleMouseLeave, { passive: true });
 
         // Keyboard navigation support for accessibility
         sdgWheel.addEventListener('keydown', (event) => {
