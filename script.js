@@ -3,19 +3,52 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Enhanced Mobile Navigation (Hamburger Menu)
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
+    const htmlEl = document.documentElement;
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('nav-active');
-        hamburger.classList.toggle('toggle');
-    });
+    const setMenuState = (isOpen) => {
+        if (!hamburger || !navLinks) return;
+        navLinks.classList.toggle('nav-active', isOpen);
+        hamburger.classList.toggle('toggle', isOpen);
+        htmlEl.classList.toggle('nav-open', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+    };
 
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('nav-active')) {
-                navLinks.classList.remove('nav-active');
-                hamburger.classList.remove('toggle');
+    if (hamburger) {
+        hamburger.setAttribute('role', 'button');
+        hamburger.setAttribute('aria-label', 'Abrir/Fechar navegação');
+        hamburger.setAttribute('aria-controls', 'primary-navigation');
+        hamburger.setAttribute('aria-expanded', 'false');
+
+        hamburger.addEventListener('click', () => {
+            const open = !navLinks.classList.contains('nav-active');
+            setMenuState(open);
+        });
+
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const open = !navLinks.classList.contains('nav-active');
+                setMenuState(open);
             }
         });
+    }
+
+    if (navLinks) {
+        navLinks.setAttribute('id', 'primary-navigation');
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('nav-active')) {
+                    setMenuState(false);
+                }
+            });
+        });
+    }
+
+    // Close the mobile menu if viewport is resized to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            setMenuState(false);
+        }
     });
 
     // 2. Enhanced Header Scroll Effect
@@ -917,6 +950,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     behavior: 'smooth',
                     block: 'start'
                 });
+            }
+        });
+    });
+
+    // 13. Flip Card Functionality for Institutions
+    const flipCards = document.querySelectorAll('.flip-card');
+    flipCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // Toggle the flipped class
+            this.classList.toggle('flipped');
+            
+            // Add a subtle animation effect
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+        
+        // Add hover effect for better UX
+        card.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('flipped')) {
+                this.style.transform = 'translateY(-5px)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('flipped')) {
+                this.style.transform = 'translateY(0)';
             }
         });
     });

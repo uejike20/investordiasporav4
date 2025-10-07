@@ -18,7 +18,7 @@
         <div class="container">
             <nav class="main-nav">
                 <a href="#hero" class="logo">Investidor da Diáspora</a>
-                <ul class="nav-links">
+                <ul class="nav-links" id="primary-navigation">
                     <li><a href="#why-invest">Porquê Investir</a></li>
                     <li><a href="#opportunities">Oportunidades</a></li>
                     <li><a href="#how-to-invest">Como Investir</a></li>
@@ -154,24 +154,132 @@
         </section>
         <section class="info-section alternate-bg" id="instituicoes">
             <div class="container">
-                <h2 class="fade-in">Instituições de Apoio</h2>
-                <p class="section-subtitle fade-in">Cabo Verde conta com diversas instituições dedicadas ao apoio e promoção do investimento, oferecendo suporte especializado em todas as fases do seu projeto.</p>
+                <h2 class="fade-in">INSTITUIÇÕES E SERVIÇOS PÚBLICOS RELEVANTES</h2>
+                <p class="section-subtitle fade-in">Instituições públicas essenciais para facilitar o investimento da diáspora em Cabo Verde, oferecendo serviços especializados e apoio institucional.</p>
+                
                 <div class="institutions-grid">
-                    <div class="institution-card fade-in"><h3>Cabo Verde Investimentos (CVI)</h3><p>Agência nacional de promoção de investimentos que oferece apoio integral aos investidores, desde a conceção do projeto até à sua implementação.</p><div class="contact-info"><p><strong>Contacto:</strong> info@cvinvestments.cv</p><p><strong>Website:</strong> www.cvincestimentos.cv</p></div></div>
-                    <div class="institution-card fade-in"><h3>ADEI - Agência de Desenvolvimento Empresarial e Inovação</h3><p>Promove o empreendedorismo e a inovação, oferecendo programas de incubação, aceleração e apoio ao desenvolvimento empresarial.</p><div class="contact-info"><p><strong>Contacto:</strong> info@adei.cv</p><p><strong>Website:</strong> www.adei.cv</p></div></div>
-                    <div class="institution-card fade-in"><h3>Pró-Empresa</h3><p>Balcão único empresarial que simplifica os procedimentos de constituição e licenciamento de empresas em Cabo Verde.</p><div class="contact-info"><p><strong>Contacto:</strong> info@proempresa.cv</p><p><strong>Website:</strong> www.proempresa.cv</p></div></div>
-                    <div class="institution-card fade-in"><h3>DGCI - Direção Geral de Contribuições e Impostos</h3><p>Entidade responsável pela administração fiscal, oferecendo informações sobre incentivos fiscais e regimes especiais para investidores.</p><div class="contact-info"><p><strong>Contacto:</strong> info@dgci.gov.cv</p><p><strong>Website:</strong> www.dgci.gov.cv</p></div></div>
-                </div>
-                <div class="partners-section fade-in">
-                    <h3>Parceiros Estratégicos</h3>
-                    <div class="partners-grid">
-                        <img src="./images/logo-partner-1.png" alt="Parceiro 1" class="partner-logo">
-                        <img src="./images/logo-partner-2.png" alt="Parceiro 2" class="partner-logo">
-                        <img src="./images/logo-partner-3.png" alt="Parceiro 3" class="partner-logo">
-                        <img src="./images/logo-partner-4.png" alt="Parceiro 4" class="partner-logo">
-                        <img src="./images/logo-partner-5.png" alt="Parceiro 5" class="partner-logo">
-                        <img src="./images/logo-partner-6.png" alt="Parceiro 6" class="partner-logo">
+                    <div class="flip-card fade-in">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="institution-logo">
+                                    <img src="./images/logo-partner-1.png" alt="Ministério das Comunidades" class="institution-logo-img">
+                                    <p class="click-hint">Clique para ver mais informações</p>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="institution-content">
+                                    <h3>Ministério das Comunidades</h3>
+                                    <p><strong>Missão:</strong> Facilitar e acreditar o investimento da diáspora em Cabo Verde, promovendo a integração dos investidores cabo-verdianos no exterior.</p>
+                                    <div class="services-list">
+                                        <h4>Serviços:</h4>
+                                        <ul>
+                                            <li>Certificação de investidores da diáspora</li>
+                                            <li>Assistência na obtenção de benefícios fiscais</li>
+                                            <li>Facilitação de parcerias estratégicas para projetos de desenvolvimento</li>
+                                        </ul>
+                                    </div>
+                                    <div class="contact-info">
+                                        <p><strong>Website:</strong> <a href="https://www.gov.cv" target="_blank" rel="noopener">www.gov.cv</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <div class="flip-card fade-in">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="institution-logo">
+                                    <img src="./images/logo-partner-2.png" alt="Pró-Empresa" class="institution-logo-img">
+                                    <p class="click-hint">Clique para ver mais informações</p>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="institution-content">
+                                    <h3>Pró-Empresa</h3>
+                                    <p><strong>Missão:</strong> Apoiar a criação e desenvolvimento de pequenas e médias empresas.</p>
+                                    <div class="services-list">
+                                        <h4>Serviços:</h4>
+                                        <ul>
+                                            <li>Acompanhamento no processo de registo de empresas</li>
+                                            <li>Financiamento</li>
+                                            <li>Consultoria de negócios</li>
+                                        </ul>
+                                    </div>
+                                    <div class="contact-info">
+                                        <p><strong>Website:</strong> <a href="https://www.proempresa.cv" target="_blank" rel="noopener">www.proempresa.cv</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card fade-in">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="institution-logo">
+                                    <img src="./images/logo-partner-3.png" alt="Cabo Verde TradeInvest" class="institution-logo-img">
+                                    <p class="click-hint">Clique para ver mais informações</p>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="institution-content">
+                                    <h3>Pró-Capital</h3>
+                                    <p><strong>Missão:</strong> Fornecer soluções de financiamento, especialmente através de capital de risco, para projetos inovadores.</p>
+                                    <div class="services-list">
+                                        <h4>Serviços:</h4>
+                                        <ul>
+                                            <li>Apoio ao financiamento de startups</li>
+                                            <li>Financiamento de empresas em expansão</li>
+                                            <li>Foco em inovação</li>
+                                        </ul>
+                                    </div>
+                                    <div class="contact-info">
+                                        <p><strong>Website:</strong> <a href="https://www.procapital.cv" target="_blank" rel="noopener">www.procapital.cv</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card fade-in">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="institution-logo">
+                                    <img src="./images/logo-partner-4.png" alt="United Nations Cabo Verde" class="institution-logo-img">
+                                    <p class="click-hint">Clique para ver mais informações</p>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="institution-content">
+                                    <h3>Direções Gerais e Institutos Públicos</h3>
+                                    <p><strong>Missão:</strong> Regulação e apoio aos diversos setores económicos de Cabo Verde.</p>
+                                    <div class="services-list">
+                                        <h4>Áreas de Atuação:</h4>
+                                        <ul>
+                                            <li><strong>Comércio:</strong> Regulação das atividades comerciais, apoio ao licenciamento</li>
+                                            <li><strong>Ambiente:</strong> Licenciamento ambiental para projetos que possam impactar o ecossistema</li>
+                                            <li><strong>Agricultura e Pescas:</strong> Regulação e promoção do setor agropecuário e pesqueiro</li>
+                                            <li><strong>Indústria e Turismo:</strong> Apoio ao desenvolvimento de empreendimentos industriais e turísticos, fornecendo licenças e regulando o setor</li>
+                                        </ul>
+                                        
+                                        <h4>Câmaras de Comércio (Barlavento e Sotavento):</h4>
+                                        <p><strong>Missão:</strong> Facilitar o diálogo entre o setor privado e o governo, promovendo o crescimento empresarial.</p>
+                                        <ul>
+                                            <li>Consultoria</li>
+                                            <li>Registo de empresas</li>
+                                            <li>Promoção de parcerias estratégicas</li>
+                                        </ul>
+                                    </div>
+                                    <div class="contact-info">
+                                        <p><strong>Website:</strong> <a href="https://www.gov.cv" target="_blank" rel="noopener">www.gov.cv</a></p>
+                                        <p><strong>Câmaras de Comércio:</strong> <a href="https://www.ccb.cv" target="_blank" rel="noopener">www.ccb.cv</a> (Barlavento) | <a href="https://www.ccs.cv" target="_blank" rel="noopener">www.ccs.cv</a> (Sotavento)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </section>

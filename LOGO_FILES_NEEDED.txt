@@ -1,0 +1,39 @@
+LOGO FILES NEEDED FOR FLIP CARDS
+==================================
+
+Please save the following logo images to the images/ folder with these exact filenames:
+
+1. logo-ministerio-comunidades.png
+   - Ministério das Comunidades / Governo de Cabo Verde logo
+   - Blue government logo with "MINISTÉRIO DAS COMUNIDADES" and "GOVERNO DE CABO VERDE"
+
+2. logo-proempresa.png
+   - PROEMPRESA logo
+   - Blue logo with stylized "C" and "INSTITUTO DE APOIO E PROMOÇÃO EMPRESARIAL"
+
+3. logo-tradeinvest.png
+   - Cabo Verde TradeInvest logo
+   - Blue umbrella/fan design with "CABO VERDE TRADEINVEST" and "Ready for your Business"
+
+4. logo-un-cabo-verde.png
+   - United Nations Cabo Verde logo
+   - UN emblem with "UNITED NATIONS CABO VERDE" and 17 SDG colored dots
+
+5. logo-oim.png
+   - OIM (International Organization for Migration) logo
+   - Blue circular logo with globe and people figures, "OIM" and "ONU MIGRAÇÃO"
+
+RECOMMENDED SPECIFICATIONS:
+- Format: PNG with transparent background
+- Size: 300-400px width, maintain aspect ratio
+- Quality: High resolution for crisp display
+- Background: Transparent or white
+
+The CSS is already configured to:
+- Make logos white on the dark blue card backgrounds
+- Scale them appropriately (80% max width, 200px max height)
+- Add hover effects with subtle scaling and glow
+- Be responsive for mobile devices
+
+Once these files are saved, the flip cards will display the actual institutional logos instead of text placeholders.
+
